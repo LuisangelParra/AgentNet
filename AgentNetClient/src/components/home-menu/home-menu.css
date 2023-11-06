@@ -6,7 +6,7 @@ body{
 }
 
 .container-slider{
-	width: 100%;
+	width: 80%;
 }
 
 .container-slider h1{
@@ -24,7 +24,7 @@ body {
 
 .slider-wrapper {
 	position: relative;
-	max-width: 90rem;
+	max-width: 80rem;
 	margin: 0 auto;
 }
 
