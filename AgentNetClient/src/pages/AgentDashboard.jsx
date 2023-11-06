@@ -2,17 +2,16 @@ import { LeftBar } from "../components/left-bar/left-bar";
 import { TopBar } from "../components/top-bar/top-bar";
 import { Routes, Route } from "react-router-dom";
 import "./AgentDashboard.css";
+import { HomeMenu } from "../components/home-menu/home-menu";
 
 export function AgentDashboard() {
   return (
     <div className="dashboard">
-      <div>
-        <TopBar />
-      </div>
-      <div className="main">
+      <TopBar />
+      <div className="container">
         <LeftBar />
         <Routes>
-          <Route path="/" element={<h1>Inicio</h1>} />
+          <Route path="/" element={<HomeMenu />} />
           <Route path="/solicitudes" element={<h1>Solicitudes</h1>} />
           <Route path="/inmuebles" element={<h1>Inmuebles</h1>} />
           <Route path="/colecciones" element={<h1>Colecciones</h1>} />
