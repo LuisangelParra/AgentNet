@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --buttons-color: #5927E3;
+    --text-color: #1B0065;
+    --bg: rgba(217, 217, 217, 0.31);
+    --border-bg: #8E90B9;
+    --color-bottons-unselected: #F2F2F2;
+    --buttons-color-post: rgb(120, 214, 27);
+}
+
+body {
+    font-family: "Kulim Park", sans-serif;
+    background-color: white;
+
+    .main_container {
+        width: 80%;
+        margin: auto;
+
+        .main_title {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            margin: 20px 0;
+        }
+
+        h1 {
+            font-size: 30px;
+            color: var(--text-color);
+            margin-right: 10px;
+            font-weight: 500;
+            font-size: 53px;
+            font-style: normal;
+            letter-spacing: 1px;
+        }
+
+        i {
+            font-size: 1.5em;
+            color: var(--text-color);
+            margin-left: 20px;
+        }
+
+        .tablink {
+            color: var(--buttons-color);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-family: Kulim Park;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 600;
+            letter-spacing: 1.4px;
+            text-decoration: none;
+            position: relative;
+            border-radius: 4px;
+
+            &:after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2px; // Grosor del subrayado
+                background-color: transparent;
+                transform-origin: bottom right;
+                transform: scaleX(0);
+                transition: transform 1s ease-in-out, background-color 0.3s;
+                border-radius: 2px;
+            }
+
+            &:hover {
+                transition: 1s ease;
+                background: transparent;
+                color: var(--text-color);
+            }
+
+            &:focus::after,
+            &:active::after {
+                transform: scaleX(1);
+                background-color: var(--buttons-color);
+            }
+        }
+
+        .tablink+.tablink {
+            margin-left: 80px;
+        }
+
+        #Publicados,
+        #Borradores {
+            background-color: var(--bg);
+        }
+
+        .tabcontent {
+            margin-top: 20px;
+            border-radius: 8px;
+
+            .search_box {
+                width: 100%;
+                margin-bottom: 20px;
+
+                display: flex;
+                flex-direction: row;
+                gap: 15px;
+
+                .search_bar {
+                    width: 60%;
+                    position: relative;
+                    padding-left: 20px;
+                    padding-top: 20px;
+
+                    input {
+                        width: 100%;
+                        height: 35px;
+                        border-radius: 12px;
+                        outline: none;
+                        border: solid 2px var(--border-bg);
+                        font-family: 'Kulim Park', sans-serif;
+                        font-size: 16px;
+                        padding-left: 15px;
+                        color: #8a8a8a;
+                        transition: ease .3s;
+
+                        &:focus {
+                            border: solid 2px var(--buttons-color);
+                        }
+                    }
+
+                    i {
+                        position: absolute;
+                        top: 25px;
+                        right: 10px;
+                        color: #8a8a8a;
+                    }
+                }
+
+                .search_button {
+                    width: 20%;
+                    height: 35px;
+                    border-radius: 12px;
+                    border: solid 2px var(--border-bg);
+                    font-size: 16px;
+                    line-height: 30px;
+                    text-align: center;
+                    color: var(--text-color);
+                    cursor: pointer;
+                    background: white;
+                    transition: ease .3s;
+
+                    &:hover {
+                        border: solid 2px var(--buttons-color);
+                        color: white;
+                        background: var(--buttons-color);
+                    }
+                }
+            }
+
+            .table {
+                width: 95%;
+                margin: auto;
+
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+
+                    tr {
+                        border-top: 1px solid #bfc1dd;
+                        border-bottom: 1px solid #bfc1dd;
+
+                        th {
+                            text-align: left;
+                            padding: 10px 0;
+                            color: var(--text-color);
+                        }
+
+                        &:nth-child(1) {
+                            border-top: none;
+                        }
+
+                        td {
+                            padding: 10px 0;
+                            color: var(--text-color);
+
+                            .details_button {
+                                width: 100%;
+                                height: 30px;
+                                background-color: var(--buttons-color);
+                                color: white;
+                                font-size: 16px;
+                                line-height: 25px;
+                                text-align: center;
+                                border-radius: 50px;
+                                cursor: pointer;
+                                border: solid var(--buttons-color) 2px;
+                                transition: ease .3s;
+
+                                &:hover {
+                                    background: white;
+                                    color: var(--buttons-color);
+                                }
+                            }
+
+                            .details_button_green {
+                                width: 100%;
+                                height: 30px;
+                                background-color: var(--buttons-color-post);
+                                color: white;
+                                font-size: 16px;
+                                line-height: 25px;
+                                text-align: center;
+                                border-radius: 50px;
+                                cursor: pointer;
+                                border: solid var(--buttons-color-post) 2px;
+                                transition: ease .3s;
+
+                                &:hover {
+                                    background: white;
+                                    color: var(--buttons-color-post);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
