@@ -3,6 +3,7 @@ import { TopBar } from "../components/top-bar/top-bar";
 import { Routes, Route } from "react-router-dom";
 import "./AgentDashboard.css";
 import { HomeMenu } from "../components/home-menu/home-menu";
+import { RequestMenu } from "../components/request-menu/request-menu";
 
 export function AgentDashboard() {
   return (
@@ -12,7 +13,7 @@ export function AgentDashboard() {
         <LeftBar />
         <Routes>
           <Route path="/" element={<HomeMenu />} />
-          <Route path="/solicitudes" element={<h1>Solicitudes</h1>} />
+          <Route path="/solicitudes" element={<RequestMenu />} />
           <Route path="/inmuebles" element={<h1>Inmuebles</h1>} />
           <Route path="/colecciones" element={<h1>Colecciones</h1>} />
           <Route path="/busquedas" element={<h1>Busquedas</h1>} />

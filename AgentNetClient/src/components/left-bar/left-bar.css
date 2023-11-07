@@ -63,13 +63,11 @@
     font-size: 1.7rem;
 }
 
-
-
-hr{
+.line{
     height: 0.5px;
     width: 80%;
     background-color: #8E90B9;
-    margin-top: 55px;
+    margin: 18% 0 2% 10% ;
 }
 
 a:-webkit-any-link {

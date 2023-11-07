@@ -101,7 +101,7 @@ export function LeftBar() {
           <h2 className="option">Herraminetas</h2>
         </Link>
       </li>
-      <hr />
+      <hr className="line" />
       <li
         onClick={(event) => handleItemClick(event, 10)}
         className={selectedItem === 10 ? "seleccionado" : ""}
