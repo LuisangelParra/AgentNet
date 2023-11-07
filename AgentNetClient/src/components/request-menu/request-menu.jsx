@@ -17,27 +17,29 @@ export function RequestMenu() {
                 </div>
                 <div className="search_button">Filtrar</div>
             </div>
-
             <div className="table">
                 <table>
-                    <tr>
-                        <th><input type="checkbox" name="" id="" className="check_button"/></th>
-                        <th>ID SOLICITUD</th>
-                        <th>SOLICITANTE</th>
-                        <th>FUENTE</th>
-                        <th>NOMBRE</th>
-                        <th>ESTADO</th>
-                        <th>ANEXOS</th>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="" id="" className="check_button"/></td>
-                        <td>1095314</td>
-                        <td>Cliente</td>
-                        <td>Perfil agente</td>
-                        <td>Marcela Valencia</td>
-                        <td>Atentido</td>
-                        <td><div className="details_button">DETALLES</div></td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th><input type="checkbox" name="" id="" className="check_button"/></th>
+                            <th>ID SOLICITUD</th>
+                            <th>SOLICITANTE</th>
+                            <th>FUENTE</th>
+                            <th>NOMBRE</th>
+                            <th>ESTADO</th>
+                            <th>ANEXOS</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="" id="" className="check_button"/></td>
+                            <td>1095314</td>
+                            <td>Cliente</td>
+                            <td>Perfil agente</td>
+                            <td>Marcela Valencia</td>
+                            <td>Atentido</td>
+                            <td><div className="details_button">DETALLES</div></td>
+                        </tr>
+                    </tbody>
+                    
                 </table>
             </div>
         </div>

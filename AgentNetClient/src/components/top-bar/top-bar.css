@@ -2,7 +2,7 @@
     width: 100%;
     height: 10%;
     display: flex;
-    border-bottom: solid 1px #5927E3;
+    border-bottom: solid 1px var(--buttons-color);
     justify-content: flex-end;
     align-items: center;
 }
@@ -29,11 +29,11 @@ a{
 
 .right-nav-bar i{
     font-size: 1.7rem;
-    color: #390065;
+    color: var(--icon-color);
 }
 
 h3{
     font-size: 1.5rem;
-    color: #1B0065;
+    color: var(--text-color);
     font-weight: 400;
 }

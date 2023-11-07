@@ -3,7 +3,7 @@
     padding: 0;
     top: 0;
     width: 18%;
-    background-color: #F8F8F8;
+    background-color: var(--white-color-bg);
 }
 
 .left_bar li{
@@ -34,7 +34,7 @@
 
 
 .seleccionado{
-    background-color: #5927E3;
+    background-color: var(--buttons-color);
     border-radius: 0 15px 15px 0;
     transition: .5s;
 }
@@ -48,25 +48,25 @@
 
 .seleccionado i{
     font-size: 1.7rem;
-    color: #F8F8F8;
+    color: var(--white-color);
 }
 
 .left_bar a h2 {
     font-weight: 400;
-    color: #1B0065;
+    color: var(--text-color);
     font-size: 1.5rem;
     width: 65%;
 }
 
 .seleccionado .option{
-    color: #F8F8F8;
+    color: var(--white-color);
     font-size: 1.7rem;
 }
 
 .line{
     height: 0.5px;
     width: 80%;
-    background-color: #8E90B9;
+    background-color: var(--border-bg);
     margin: 18% 0 2% 10% ;
 }
 

@@ -1,16 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --buttons-color: #5927e3;
-  --text-color: #1b0065;
-  --bg: rgba(217, 217, 217, 0.31);
-  --border-bg: #8e90b9;
-}
-
 body {
   font-family: "Kulim Park", sans-serif;
 }
