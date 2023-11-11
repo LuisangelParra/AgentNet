@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --buttons-color: #5927e3;
+  --text-color: #1b0065;
+  --bg: rgba(217, 217, 217, 0.31);
+  --border-bg: #8e90b9;
+}
+
+body {
+  font-family: "Kulim Park", sans-serif;
+}
+body .main_container {
+  width: 80%;
+  height: 100%;
+  margin: 2em auto;
+}
+body .main_container .main_box {
+  width: 100%;
+  border-radius: 5px;
+  padding: 20px;
+}
+body .main_container .main_box .search_box {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+body .main_container .main_box .search_box .search_bar {
+  width: 60%;
+  position: relative;
+}
+body .main_container .main_box .search_box .search_bar input {
+  width: 100%;
+  height: 35px;
+  border-radius: 12px;
+  outline: none;
+  border: solid 2px var(--border-bg);
+  font-family: "Kulim Park", sans-serif;
+  font-size: 16px;
+  padding-left: 15px;
+  color: #8a8a8a;
+  transition: ease 0.3s;
+}
+body .main_container .main_box .search_box .search_bar input:focus {
+  border: solid 2px var(--buttons-color);
+}
+body .main_container .main_box .search_box .search_bar i {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #8a8a8a;
+}
+body .main_container .main_box .search_box .search_button {
+  width: 20%;
+  height: 35px;
+  border-radius: 12px;
+  border: solid 2px var(--border-bg);
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+  color: var(--text-color);
+  cursor: pointer;
+  background: white;
+  transition: ease 0.3s;
+}
+body .main_container .main_box .search_box .search_button:hover {
+  border: solid 2px var(--buttons-color);
+  color: white;
+  background: var(--buttons-color);
+}
+
+body .main_container .main_box .home-list {
+  width: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  justify-items: center;
+  padding: 0;
+  gap: 20px;
+}
+
+.card {
+  width: 22rem;
+  height: 28em;
+  padding: 1em;
+  background-color: #1b0065;
+  border-radius: 15px;
+}

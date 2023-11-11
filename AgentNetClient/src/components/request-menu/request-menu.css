@@ -1,10 +1,12 @@
 body {
   font-family: "Kulim Park", sans-serif;
 }
+
 body .main_container {
-  width: 80%;
+  width: 100%;
   padding: 0 1rem 1rem 1rem;
 }
+
 body .main_container .main_title {
   width: 100%;
   display: flex;
