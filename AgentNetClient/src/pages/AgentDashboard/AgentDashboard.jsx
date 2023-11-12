@@ -1,11 +1,11 @@
-import { LeftBar } from "../components/left-bar/left-bar";
-import { TopBar } from "../components/top-bar/top-bar";
+import { LeftBar } from "../../components/left-bar/left-bar";
+import { TopBar } from "../../components/top-bar/top-bar";
 import { Routes, Route } from "react-router-dom";
 import "./AgentDashboard.css";
-import { HomeMenu } from "../components/home-menu/home-menu";
-import { RequestMenu } from "../components/request-menu/request-menu";
-import { PropertyMenu } from "../components/property-menu/property-menu";
-import { SearchProperty } from "../components/search-property/search-property";
+import { HomeMenu } from "../../components/home-menu/home-menu";
+import { RequestMenu } from "../../components/request-menu/request-menu";
+import { PropertyMenu } from "../../components/property-menu/property-menu";
+import { SearchProperty } from "../../components/search-property/search-property";
 
 export function AgentDashboard() {
   return (

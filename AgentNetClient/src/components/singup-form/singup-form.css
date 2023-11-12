@@ -1,0 +1,169 @@
+.singup-box {
+  width: 40em;
+  height: 52em;
+  background-color: var(--white-color);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 4em;
+}
+
+.singup-box .singup-title {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.2em;
+}
+
+.singup-box .singup-login {
+  font-size: 1.2em;
+  font-weight: 400;
+  color: var(--text-color);
+  margin-bottom: 1em;
+}
+
+.singup-box .singup-login .singup-login-link {
+  color: var(--buttons-color);
+  text-decoration: none;
+}
+
+.singup-box .inputs h4 {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.5em;
+}
+
+.singup-input {
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  color: var(--color-input-unselected);
+}
+
+select {
+  border: 1px solid var(--white-color) !important;
+  outline: 1px solid var(--white-color);
+}
+
+.singup-box .inputs .select-cont {
+  width: 100%;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  border-radius: 0.6em;
+  padding: 0 1em;
+  border-width: 0.1em;
+  border-style: solid;
+  border-color: var(--color-input-unselected);
+  background-color: var(--white-color);
+  margin-bottom: 2em;
+}
+
+.singup-box .inputs .select-cont .select-input {
+  width: 100%;
+  border: 0px;
+  font-size: 1.1em;
+  font-weight: 400;
+  color: var(--text-color);
+  padding: 0.6em;
+}
+
+.singup-box .inputs .names {
+  width: 100%;
+  display: flex;
+  margin-bottom: 2em;
+  justify-content: space-between;
+}
+
+.singup-box .inputs .names .firstname {
+  width: 14em;
+  height: 3.8em;
+  font-size: 1.1em;
+  font-weight: 400;
+  padding: 0 1.9em;
+  border-width: 0.1em;
+  border-style: solid;
+  border-radius: 0.6em;
+  color: var(--color-input-unselected);
+  border-color: var(--color-input-unselected);
+}
+
+.singup-box .inputs .names .lastname {
+  width: 14em;
+  height: 3.8em;
+  font-size: 1.1em;
+  font-weight: 400;
+  padding: 0 1.9em;
+  border-width: 0.1em;
+  border-style: solid;
+  border-radius: 0.6em;
+  color: var(--color-input-unselected);
+  border-color: var(--color-input-unselected);
+}
+
+.singup-box .inputs .email {
+  width: 100%;
+  height: 3.8em;
+  font-size: 1.1em;
+  font-weight: 400;
+  padding: 0 1.9em;
+  border-width: 0.1em;
+  border-style: solid;
+  border-radius: 0.6em;
+  color: var(--color-input-unselected);
+  border-color: var(--color-input-unselected);
+  margin-bottom: 2em;
+}
+
+.singup-box .inputs .passwords {
+  width: 100%;
+  display: flex;
+  margin-bottom: 2em;
+  justify-content: space-between;
+}
+
+.singup-box .inputs .passwords .password {
+  width: 14em;
+  height: 3.8em;
+  font-size: 1.1em;
+  font-weight: 400;
+  padding: 0 1.9em;
+  border-width: 0.1em;
+  border-style: solid;
+  border-radius: 0.6em;
+  color: var(--color-input-unselected);
+  border-color: var(--color-input-unselected);
+}
+
+.singup-box .inputs .passwords .password2 {
+  width: 14em;
+  height: 3.8em;
+  font-size: 1.1em;
+  font-weight: 400;
+  padding: 0 1.9em;
+  border-width: 0.1em;
+  border-style: solid;
+  border-radius: 0.6em;
+  color: var(--color-input-unselected);
+  border-color: var(--color-input-unselected);
+}
+
+.singup-box .singup-button {
+  width: 100%;
+  height: 3.8em;
+  background-color: var(--buttons-color);
+  color: var(--white-color);
+  border-width: 0;
+  border-style: solid;
+  border-radius: 0.6em;
+  font-size: 1.1em;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+.singup-box .singup-terms {
+  color: var(--text-color);
+  font-size: 0.9em;
+}
