@@ -1,0 +1,31 @@
+POST http://localhost:8000/api/login/
+Content-Type: application/json
+
+{
+    "email": "test4@test4.com",
+    "password": "admin"
+}
+
+###
+POST http://localhost:8000/api/signup/
+Content-Type: application/json
+
+{
+    "email": "test7@test7.com",
+    "password": "admin",
+    "FirstName": "Nombre",
+    "LastName": "Apellido",
+    "PhoneNumber": "123456789",
+    "City": "Ciudad",
+    "State": "Estado",
+    "Description": "Descripción",
+    "Premium": true
+}
+
+###
+
+GET http://localhost:8000/api/test_token/
+Content-Type: application/json
+Authorization: Token 885f1caf53f35a0b69442f551eae81445855004a
+
+{}
