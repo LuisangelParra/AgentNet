@@ -13,7 +13,7 @@ export function TopBar(profile) {
           </li>
           <li>
             <a className="username" href="#">
-              <h3>{profile.profile.FirstName}</h3>
+              <h3>{ profile?.profile?.FirstName }</h3>
             </a>
           </li>
           <li>
