@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./top-bar.css";
 
-export function TopBar() {
+export function TopBar(profile) {
   return (
     <div className="nav-bar">
       <div className="right-nav-bar">
@@ -13,7 +13,7 @@ export function TopBar() {
           </li>
           <li>
             <a className="username" href="#">
-              <h3>Luisangel</h3>
+              <h3>{profile.profile.FirstName}</h3>
             </a>
           </li>
           <li>

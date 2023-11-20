@@ -2,16 +2,16 @@ POST http://localhost:8000/api/login/
 Content-Type: application/json
 
 {
-    "email": "test4@test4.com",
+    "email": "test1@test1.com",
     "password": "admin"
 }
 
 ###
-POST http://localhost:8000/api/signup/
+POST http://localhost:8000/api/singup/
 Content-Type: application/json
 
 {
-    "email": "test7@test7.com",
+    "email": "test1@test1.com",
     "password": "admin",
     "FirstName": "Nombre",
     "LastName": "Apellido",

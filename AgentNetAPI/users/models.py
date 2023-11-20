@@ -6,6 +6,9 @@ from .managers import CustomUserManager
 
 
 class CustomUser(AbstractUser):
+    # Eliminamos los campos first_name y last_name
+    first_name = None
+    last_name = None
     username = None
     email = models.EmailField(_("email address"), unique=True)
 
@@ -19,12 +22,12 @@ class CustomUser(AbstractUser):
 
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='profile')
-    FirstName = models.CharField(max_length=100)
-    LastName = models.CharField(max_length=100)
-    PhoneNumber = models.CharField(max_length=100)
-    City = models.CharField(max_length=100)
-    State = models.CharField(max_length=100)
-    Description = models.CharField(max_length=400)
+    FirstName = models.CharField(max_length=100, null=True, blank=True)
+    LastName = models.CharField(max_length=100, null=True, blank=True)
+    PhoneNumber = models.CharField(max_length=100, null=True, blank=True)
+    City = models.CharField(max_length=100, null=True, blank=True)
+    State = models.CharField(max_length=100, null=True, blank=True)
+    Description = models.CharField(max_length=400, null=True, blank=True)
     Premium = models.BooleanField(default=False)
 
     def __str__(self):

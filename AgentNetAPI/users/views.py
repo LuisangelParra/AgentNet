@@ -18,7 +18,7 @@ def login(request):
     return Response({"token": token.key, "user":serializer.data})
 
 @api_view(['POST'])
-def signup(request):
+def singup(request):
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
@@ -29,12 +29,12 @@ def signup(request):
         # Crear el perfil asociado al usuario
         profile_data = {
             'user': user.id,
-            'FirstName': request.data.get('FirstName', ''),
-            'LastName': request.data.get('LastName', ''),
-            'PhoneNumber': request.data.get('PhoneNumber', ''),
-            'City': request.data.get('City', ''),
-            'State': request.data.get('State', ''),
-            'Description': request.data.get('Description', ''),
+            'FirstName': request.data.get('FirstName', request.data['firstName']),
+            'LastName': request.data.get('LastName', request.data['lastName']),
+            'PhoneNumber': request.data.get('PhoneNumber', None),
+            'City': request.data.get('City', None),
+            'State': request.data.get('State', None),
+            'Description': request.data.get('Description', None),
             'Premium': request.data.get('Premium', False),
         }
 
