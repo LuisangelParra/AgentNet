@@ -40,7 +40,7 @@ export function AgentDashboard() {
         <LeftBar />
         <div className="rutas">
           <Routes>
-            <Route path="/" element={<HomeMenu />} />
+            <Route path="/" element={<HomeMenu profile={userProfile} />} />
             <Route path="/solicitudes" element={<RequestMenu />} />
             <Route path="/inmuebles" element={<PropertyMenu />} />
             <Route path="/inmuebles/busqueda" element={<SearchProperty />} />

@@ -1,10 +1,10 @@
 import React from "react";
 import "./home-menu.css";
 
-export function HomeMenu() {
+export function HomeMenu(profile) {
   return (
     <div className="container-slider">
-      <h1>Bienvenido, Luisangel</h1>
+      <h1>Bienvenido, { profile?.profile?.FirstName }</h1>
       <section className="sub-container">
         <div className="slider-wrapper">
           <div className="slider">
@@ -25,9 +25,9 @@ export function HomeMenu() {
             />
           </div>
           <div className="slider-nav">
-            <a href="#slide-1"></a>
-            <a href="#slide-2"></a>
-            <a href="#slide-3"></a>
+            <a href=""></a>
+            <a href=""></a>
+            <a href=""></a>
           </div>
         </div>
       </section>
