@@ -20,6 +20,14 @@
       {
         "duplicate-id-active": "off"
       }
+    ],
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "scrollbar-width"
+        ]
+      }
     ]
   }
 }
