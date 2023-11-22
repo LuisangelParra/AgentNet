@@ -25,7 +25,7 @@ class HouseViewSet(viewsets.ModelViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
     
     @action(detail=True, methods=['put'])
-    def publish(self, request, pk=None):
+    def publish(self, request):
         house = self.get_object()
 
         # Asegúrate de que el usuario que intenta publicar la casa es el propietario

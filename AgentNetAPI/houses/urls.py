@@ -6,5 +6,5 @@ router = DefaultRouter()
 router.register(r'houses', HouseViewSet)
 
 urlpatterns = [
-    path('houses/', include(router.urls)),
+    path('', include(router.urls)),
 ]
