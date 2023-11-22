@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   padding: 4em;
+  transition: border 0.3s ease-in-out;
 }
 
 .singup-box .singup-title {
@@ -73,7 +74,6 @@ select {
 .singup-box .inputs .names {
   width: 100%;
   display: flex;
-  margin-bottom: 2em;
   justify-content: space-between;
 }
 
@@ -114,13 +114,13 @@ select {
   border-radius: 0.6em;
   color: var(--color-input-unselected);
   border-color: var(--color-input-unselected);
-  margin-bottom: 2em;
+  margin-bottom: 1.8em;
 }
 
 .singup-box .inputs .passwords {
   width: 100%;
   display: flex;
-  margin-bottom: 2em;
+  margin-bottom: 1.8em;
   justify-content: space-between;
 }
 
@@ -168,3 +168,78 @@ select {
   color: var(--text-color);
   font-size: 0.9em;
 }
+
+.singup-box .error-message {
+  color: red;
+  /* Puedes cambiar el color según tu preferencia */
+  font-size: 0.9em;
+  font-weight: 700;
+  margin-bottom: -2em;
+}
+
+.passwords .error-container {
+  margin-top: 0.5em;
+}
+.singup-box .names div {
+  position: relative;
+  margin-bottom: 2em;
+}
+
+.singup-box .names div::before,
+.singup-box .names div::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  background-color: var(--buttons-color);
+  transition: width 3s ease-in-out;
+}
+
+.singup-box .singup-input {
+  width: 100%;
+  padding: 0.6em;
+  border-radius: 0.6em;
+  transition: all 0.3s ease-in-out;
+}
+
+.singup-box .singup-input:focus {
+  border-color: var(--buttons-color);
+  color:black;
+}
+
+.singup-box .inputs .firstname:focus {
+  border-color: var(--buttons-color);
+  color:black;
+}
+
+.singup-box .inputs .lastname:focus {
+  border-color: var(--buttons-color);
+  color:black;
+}
+
+.singup-box .inputs .password:focus {
+  border-color: var(--buttons-color);
+  color:black;
+}
+
+.singup-box .inputs .password2:focus {
+  border-color: var(--buttons-color);
+  color:black;
+}
+
+.singup-box .singup-input:focus::placeholder {
+  color: var(--buttons-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.singup-box .inputs .firstname:focus::placeholder {
+  color: var(--buttons-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.singup-box .inputs .lastname:focus::placeholder {
+  color: var(--buttons-color);
+  transition: all 0.3s ease-in-out;
+}
+
