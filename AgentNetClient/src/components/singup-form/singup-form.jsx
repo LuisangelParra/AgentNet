@@ -53,12 +53,19 @@ export function SingUpForm() {
       // Manejar el token y redirigir o realizar otras acciones necesarias
     } catch (error) {
       console.error("Error de signup:", error.response.data);
+    
       // Validar si el correo ya existe en la base de datos
-      if (error.response.data.message.includes("correo")) {
+      if (error.response.data.email && Array.isArray(error.response.data.email)) {
+        // Check if the email property exists and is an array
         setEmailExistsError(true);
+        setEmailExistsError((prev) => {
+          console.log(prev); // Log the updated state
+          return prev;
+        });
       }
       // Manejar el error, mostrar un mensaje al usuario, etc.
     }
+    
   };
 
   return (
@@ -74,7 +81,7 @@ export function SingUpForm() {
         <h4>You are?</h4>
         <div className="select-cont">
           <select className="select-input">
-            <option value="Particular" defaultValue>
+            <option value="Particular">
               Particular
             </option>
             <option value="Individual">Individual</option>
@@ -109,7 +116,9 @@ export function SingUpForm() {
           onChange={(e) => setEmail(e.target.value)}
         />
         {emailExistsError && (
-          <p className="error-message">{errorMessages.emailExists}</p>
+          <div className="error-container">
+            <p className="error-message-email">{errorMessages.emailExists}</p>
+          </div>
         )}
         <div className="passwords">
           <div>
