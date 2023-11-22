@@ -1,2 +1,2 @@
 venv
-./AgentNetAPI/AgentNetAPI/settings.py
+AgentNetAPI/AgentNetAPI/settings.py
