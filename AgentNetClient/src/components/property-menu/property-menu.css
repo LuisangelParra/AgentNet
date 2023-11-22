@@ -1,25 +1,33 @@
-.property-container{
+.property-container {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     padding: 0 1rem 1rem 1rem;
-} 
+    display: flex;
+    flex-direction: column; /* Cambié la dirección para que el título y los botones estén en columna */
+}
 
-.property-container .title{
+.property-container .title {
     margin: 20px 0;
 }
-.property-container .title h1{
+
+.property-container .title h1 {
     font-weight: 600;
+    font-size: 2em; /* Ajusté el tamaño del título */
     color: var(--text-color);
+    padding-left: 50px;
 }
 
-.property-container .bottons-container{
+.property-container .bottons-container {
     display: flex;
     gap: 3em;
+    margin-top: 20px; /* Espacio entre el título y los botones */
+    justify-content: center; /* Centro los botones horizontalmente */
 }
 
-.property-container .bottons-container .first_button{
-    height: 4em;
-    width: 12em;
+.property-container .bottons-container .first_button,
+.property-container .bottons-container .second_button {
+    height: 8em;
+    width: 20em;
     border: solid 2px var(--border-bg);
     border-radius: 0.5em;
     display: flex;
@@ -27,55 +35,20 @@
     align-items: center;
     padding: 1em;
     gap: 0.5em;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: 600;
 }
 
-.property-container .bottons-container .first_button:hover{
+.property-container .bottons-container .first_button:hover,
+.property-container .bottons-container .second_button:hover {
     background-color: var(--buttons-color);
     color: var(--bg);
     border: solid 2px var(--buttons-color);
     cursor: pointer;
 }
 
-.property-container .bottons-container .first_button:hover i{
+.property-container .bottons-container .first_button:hover i,
+.property-container .bottons-container .second_button:hover i,
+.property-container .bottons-container .second_button:hover .second_title_botton {
     color: var(--white-color);
 }
-
-.property-container .bottons-container .first_button:hover .title_botton{
-    color: var(--white-color);
-}
-
-.property-container .bottons-container .second_button{
-    height: 4em;
-    width: 12em;
-    border: solid 2px var(--border-bg);
-    border-radius: 0.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1em;
-    gap: 0.5em;
-    font-size: 1.2em;
-    font-weight: 600;
-}
-
-.property-container .bottons-container .second_button:hover{
-    background-color: var(--buttons-color);
-    color: var(--bg);
-    border: solid 2px var(--buttons-color);
-    cursor: pointer;
-}
-
-.property-container .bottons-container .second_button:hover i{
-    color: var(--white-color);
-}
-
-.property-container .bottons-container .second_button:hover .second_title_botton{
-    color: var(--white-color);
-}
-
-
-
-
-

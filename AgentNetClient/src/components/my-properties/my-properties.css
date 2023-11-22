@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --buttons-color: #5927E3;
+    --text-color: #1B0065;
+    --bg: rgba(217, 217, 217, 0.31);
+    --border-bg: #8E90B9;
+    --color-bottons-unselected: #F2F2F2;
+    --buttons-color-post: rgb(120, 214, 27);
+}
+
+body {
+    font-family: "Kulim Park", sans-serif;
+    background-color: white;
+}
+
+body .main_container {
+    width: 80%;
+    margin: auto;
+    font-size: 20px;
+}
+
+body .main_container .main_title {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 20px 0;
+}
+
+body .main_container .main_title i {
+    font-size: 1.5em;
+    color: var(--text-color);
+    margin-left: 20px;
+}
+
+body .main_container h1 {
+    font-size: 30px;
+    color: var(--text-color);
+    margin-right: 10px;
+    font-weight: 500;
+    font-size: 53px;
+    font-style: normal;
+    letter-spacing: 1px;
+}
+
+body .main_container i {
+    font-size: 1.5em;
+    color: var(--text-color);
+    margin-left: 20px;
+}
+
+body .main_container .tablink {
+    color: var(--buttons-color);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: Kulim Park;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-decoration: none;
+    position: relative;
+    border-radius: 4px;
+}
+
+body .main_container .tablink:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform 1s ease-in-out, background-color 0.3s;
+    border-radius: 2px;
+}
+
+body .main_container .tablink:hover {
+    transition: 1s ease;
+    background: transparent;
+    color: var(--text-color);
+}
+
+body .main_container .tablink:focus::after,
+body .main_container .tablink:active::after {
+    transform: scaleX(1);
+    background-color: var(--buttons-color);
+}
+
+body .main_container .tablink+.tablink {
+    margin-left: 80px;
+}
+
+body .main_container #Publicados,
+body .main_container #Borradores {
+    background-color: var(--bg);
+}
+
+body .main_container .tabcontent {
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+body .main_container .tabcontent .search_box {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+body .main_container .tabcontent .search_box .search_bar {
+    width: 60%;
+    position: relative;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+body .main_container .tabcontent .search_box .search_bar input {
+    width: 100%;
+    height: 35px;
+    border-radius: 12px;
+    outline: none;
+    border: solid 2px var(--border-bg);
+    font-family: "Kulim Park", sans-serif;
+    font-size: 16px;
+    padding-left: 15px;
+    color: #8a8a8a;
+    transition: ease 0.3s;
+}
+
+body .main_container .tabcontent .search_box .search_bar input:focus {
+    border: solid 2px var(--buttons-color);
+}
+
+body .main_container .tabcontent .search_box .search_bar i {
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    color: #8a8a8a;
+}
+
+body .main_container .tabcontent .search_box .search_button {
+    width: 20%;
+    height: 35px;
+    border-radius: 12px;
+    border: solid 2px var(--border-bg);
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    color: var(--text-color);
+    cursor: pointer;
+    background: white;
+    transition: ease 0.3s;
+}
+
+body .main_container .tabcontent .search_box .search_button:hover {
+    border: solid 2px var(--buttons-color);
+    color: white;
+    background: var(--buttons-color);
+}
+
+body .main_container .tabcontent .table {
+    width: 95%;
+    margin: auto;
+}
+
+body .main_container .tabcontent .table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+body .main_container .tabcontent .table table tr {
+    border-top: 1px solid #bfc1dd;
+    border-bottom: 1px solid #bfc1dd;
+}
+
+body .main_container .tabcontent .table table tr th {
+    text-align: left;
+    padding: 10px 0;
+    color: var(--text-color);
+}
+
+body .main_container .tabcontent .table table tr:nth-child(1) {
+    border-top: none;
+}
+
+body .main_container .tabcontent .table table tr td {
+    padding: 10px 0;
+    color: var(--text-color);
+}
+
+body .main_container .tabcontent .table table tr td .details_button {
+    width: 100%;
+    height: 30px;
+    background-color: var(--buttons-color);
+    color: white;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50px;
+    cursor: pointer;
+    border: solid var(--buttons-color) 2px;
+    transition: ease 0.3s;
+}
+
+body .main_container .tabcontent .table table tr td .details_button:hover {
+    background: white;
+    color: var(--buttons-color);
+}
+
+body .main_container .tabcontent .table table tr td .details_button_green {
+    width: 100%;
+    height: 30px;
+    background-color: var(--buttons-color-post);
+    color: white;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50px;
+    cursor: pointer;
+    border: solid var(--buttons-color-post) 2px;
+    transition: ease 0.3s;
+}
+
+body .main_container .tabcontent .table table tr td .details_button_green:hover {
+    background: white;
+    color: var(--buttons-color-post);
+}

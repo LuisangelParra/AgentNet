@@ -10,15 +10,16 @@ export function PropertyMenu() {
       </div>
       <div className="bottons-container">
         <Link to={"/dashboard/inmuebles/busqueda"} className="first_button">
-            <i className="fi-rr-search search_icon"></i>
-            <div className="title_botton">Buscar Inmuebles</div>
+          <i className="fi-rr-search search_icon"></i>
+          <div className="title_botton">Buscar Inmuebles</div>
         </Link>
 
         <Link to={"/dashboard/inmuebles/misinmuebles"} className="second_button">
-            <i className="fi-rr-home second_home_icon"></i>
-            <div className="second_title_botton">Publicar un Inmueble</div>
+          <i className="fi-rr-home second_home_icon"></i>
+          <div className="second_title_botton">Publicar un Inmueble</div>
         </Link>
       </div>
     </div>
   );
 }
+

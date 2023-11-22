@@ -11,7 +11,11 @@ import { HomeMenu } from "../../components/home-menu/home-menu";
 import { RequestMenu } from "../../components/request-menu/request-menu";
 import { PropertyMenu } from "../../components/property-menu/property-menu";
 import { SearchProperty } from "../../components/search-property/search-property";
+<<<<<<< HEAD
 import { PostProperty } from "../../components/post-property/post-property";
+=======
+import { MyProperties } from "../../components/my-properties/my-properties";
+>>>>>>> 5652d6c53a2d7dc87462ed92944bf5b353a96ad4
 
 export function AgentDashboard() {
   const [userProfile, setUserProfile] = useState(null);
@@ -45,7 +49,11 @@ export function AgentDashboard() {
             <Route path="/solicitudes" element={<RequestMenu />} />
             <Route path="/inmuebles" element={<PropertyMenu />} />
             <Route path="/inmuebles/busqueda" element={<SearchProperty />} />
+<<<<<<< HEAD
             <Route path="/inmuebles/misinmuebles" element={<PostProperty />} />
+=======
+            <Route path="/inmuebles/misinmuebles" element={<MyProperties />} />
+>>>>>>> 5652d6c53a2d7dc87462ed92944bf5b353a96ad4
             <Route path="/colecciones" element={<h1>Colecciones</h1>} />
             <Route path="/busquedas" element={<h1>Busquedas</h1>} />
             <Route path="/transacciones" element={<h1>Transacciones</h1>} />

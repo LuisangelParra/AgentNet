@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./singup-form.css";
 
+const errorMessages = {
+  passwordMismatch: "Las contraseñas no coinciden",
+  emailExists: "Este correo ya está registrado",
+  passwordLength: "La contraseña debe tener al menos 8 caracteres",
+};
+
 export function SingUpForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -11,9 +17,30 @@ export function SingUpForm() {
   const [password, setPassword] = useState("");
   const [password2, setpassword2] = useState("");
   const [error, setError] = useState("");
+  const [passwordMismatchError, setPasswordMismatchError] = useState(false);
+  const [emailExistsError, setEmailExistsError] = useState(false);
+  const [passwordLengthError, setPasswordLengthError] = useState(false);
 
   const handleSignup = async (e) => {
     e.preventDefault();
+
+    // Resetear mensajes de error al intentar nuevamente
+    setPasswordMismatchError(false);
+    setEmailExistsError(false);
+    setPasswordLengthError(false);
+
+    // Validar longitud mínima de la contraseña
+    if (password.length < 8) {
+      setPasswordLengthError(true);
+      return;
+    }
+
+    // Validar contraseñas
+    if (password !== password2) {
+      setPasswordMismatchError(true);
+      return;
+    }
+
     try {
       const response = await axios.post("http://localhost:8000/api/signup/", {
         firstName,
@@ -26,8 +53,19 @@ export function SingUpForm() {
       // Manejar el token y redirigir o realizar otras acciones necesarias
     } catch (error) {
       console.error("Error de signup:", error.response.data);
+    
+      // Validar si el correo ya existe en la base de datos
+      if (error.response.data.email && Array.isArray(error.response.data.email)) {
+        // Check if the email property exists and is an array
+        setEmailExistsError(true);
+        setEmailExistsError((prev) => {
+          console.log(prev); // Log the updated state
+          return prev;
+        });
+      }
       // Manejar el error, mostrar un mensaje al usuario, etc.
     }
+    
   };
 
   return (
@@ -43,7 +81,7 @@ export function SingUpForm() {
         <h4>You are?</h4>
         <div className="select-cont">
           <select className="select-input">
-            <option value="Particular" defaultValue>
+            <option value="Particular">
               Particular
             </option>
             <option value="Individual">Individual</option>
@@ -77,6 +115,11 @@ export function SingUpForm() {
           className="singup-input email"
           onChange={(e) => setEmail(e.target.value)}
         />
+        {emailExistsError && (
+          <div className="error-container">
+            <p className="error-message-email">{errorMessages.emailExists}</p>
+          </div>
+        )}
         <div className="passwords">
           <div>
             <h4>Password*</h4>
@@ -86,6 +129,16 @@ export function SingUpForm() {
               className="singup-input password"
               onChange={(e) => setPassword(e.target.value)}
             />
+            {(passwordLengthError || passwordMismatchError) && (
+              <div className="error-container">
+                {passwordLengthError && (
+                  <p className="error-message">{errorMessages.passwordLength}</p>
+                )}
+                {passwordMismatchError && (
+                  <p className="error-message">{errorMessages.passwordMismatch}</p>
+                )}
+              </div>
+            )}
           </div>
           <div>
             <h4>Confirm Password*</h4>
@@ -98,7 +151,9 @@ export function SingUpForm() {
           </div>
         </div>
       </div>
-      <button className="singup-button" type="submit">Create My Account</button>
+      <button className="singup-button" type="submit">
+        Create My Account
+      </button>
       <p className="singup-terms">
         By signing up, you agree to our Terms, Data Policy and Cookies Policy.
       </p>

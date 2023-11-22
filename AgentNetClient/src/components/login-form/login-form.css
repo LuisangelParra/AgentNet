@@ -91,8 +91,8 @@
   border-radius: 50%;
   vertical-align: middle;
   border: 1px solid var(--buttons-color);
-  appearance: none;
   -webkit-appearance: none;
+  appearance: none;
   outline: none;
   cursor: pointer;
 }
@@ -125,4 +125,16 @@
   border-radius: 0.6em;
   font-size: 1.1em;
   font-weight: 700;
+}
+
+.login-box .inputs .email:focus{
+  border-color: var(--buttons-color);
+  color:black;
+  transition: all 0.3s ease-in-out;
+}
+
+.login-box .inputs .password:focus{
+  border-color: var(--buttons-color);
+  color:black;
+  transition: all 0.3s ease-in-out;
 }
