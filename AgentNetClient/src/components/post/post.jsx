@@ -11,7 +11,10 @@ import {
 } from "@vis.gl/react-google-maps";
 
 export function Post() {
+  
+  // VARIABLES
   const [markerRef, marker] = useAdvancedMarkerRef();
+  const [selectedAddress, setSelectedAddress] = useState("");
   const [position, setPosition] = useState({
     lat: 10.9838092,
     lng: -74.8592172,
@@ -24,6 +27,31 @@ export function Post() {
     componentRestrictions: { country: "co" },
     fields: ["address_components", "geometry", "icon", "name"],
     types: ["establishment"],
+  };
+
+  const handleMapClick = (event) => {
+    // Obtén las coordenadas del clic
+    const { lat,lng } = event.detail.latLng;
+
+    // Crea un nuevo marcador en las coordenadas del clic
+    setPosition({ lat, lng });
+
+    // Obtener la dirección del lugar seleccionado (puedes usar la API de geocodificación inversa)
+    getAddressFromLatLng(lat, lng);
+  };
+
+  const getAddressFromLatLng = (lat, lng) => {
+    const geocoder = new window.google.maps.Geocoder();
+    const latLng = new window.google.maps.LatLng(lat, lng);
+
+    geocoder.geocode({ location: latLng }, (results, status) => {
+      if (status === "OK") {
+        if (results[0]) {
+          const formattedAddress = results[0].formatted_address;
+          setSelectedAddress(formattedAddress);
+        }
+      }
+    });
   };
 
   useEffect(() => {
@@ -109,6 +137,8 @@ export function Post() {
                 id="search_bar"
                 placeholder="Buscar la dirección del inmueble"
                 ref={inputRef}
+                value={selectedAddress}
+                onChange={(e) => setSelectedAddress(e.target.value)}
               />
               <i className="fi-rr-search"></i>
             </div>
@@ -144,6 +174,7 @@ export function Post() {
               <Map
                 zoom={zoom}
                 center={position}
+                onClick={handleMapClick} // Agrega el listener al evento onClick
                 id="map1"
                 mapId={import.meta.env.VITE_REACT_APP_GOOGLE_MAP_ID}
               >
