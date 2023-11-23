@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./my-properties.css";
+import { Link } from "react-router-dom";
 
 export function MyProperties() {
     // Estado para almacenar la pestaña activa
@@ -10,6 +11,10 @@ export function MyProperties() {
             <div className="main_title">
                 <h1>Mis Inmuebles</h1>
                 <i className="fi-rr-square-info"></i>
+                <Link to={"/dashboard/inmuebles/publicar"} className="Post">
+                    <h1>Publicar</h1>
+                    <i className="fi-rr-document"></i>
+                </Link>
             </div>
 
             {/* Botones de pestaña */}

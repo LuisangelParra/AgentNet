@@ -19,13 +19,56 @@ body {
 }
 
 body .main_container {
-    width: 80%;
     margin: auto;
     font-size: 20px;
 }
 
+body .main_container .main_title .Post {
+    position: relative;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    border-radius: 15px;
+    background-color: var(--buttons-color);
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+body .main_container .main_title .Post h1{
+    color: white;
+    margin-right: 10px;
+    font-weight: 500;
+    font-size: 55px;
+    font-style: normal;
+    letter-spacing: 2px;
+    margin-left: auto;
+}
+
+body .main_container .main_title .Post i{
+    font-size: 2em;
+    color: white;
+    margin-left: 5px;
+}
+
+body .main_container .main_title .Post:hover {
+    transition: 0.3s ease;
+    background-color: var(--bg);
+    border: solid var(--buttons-color);
+}
+
+body .main_container .main_title .Post:hover h1{
+    transition: 1s ease;
+    color: var(--buttons-color);
+}
+
+body .main_container .main_title .Post:hover i{
+    transition: 1s ease;
+    color: var(--buttons-color);
+}
+
 body .main_container .main_title {
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     align-items: baseline;
@@ -49,7 +92,7 @@ body .main_container h1 {
 }
 
 body .main_container i {
-    font-size: 1.5em;
+    font-size: 1em;
     color: var(--text-color);
     margin-left: 20px;
 }
