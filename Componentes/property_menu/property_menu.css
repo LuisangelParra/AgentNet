@@ -1,3 +1,7 @@
+body .main_container {
+  width: 80%;
+  margin: auto;
+}
 body .main_container .main_title {
   width: 100%;
   display: flex;

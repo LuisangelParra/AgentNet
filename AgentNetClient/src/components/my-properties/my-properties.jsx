@@ -7,7 +7,7 @@ export function MyProperties() {
     const [activeTab, setActiveTab] = useState("Publicados");
 
     return (
-        <div className="main_container">
+        <div className="my_property_container">
             <div className="main_title">
                 <h1>Mis Inmuebles</h1>
                 <i className="fi-rr-square-info"></i>

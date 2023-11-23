@@ -1,29 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.my_property_container {
+	width: 80%;
+	margin: 0 auto;
 }
 
-:root {
-    --buttons-color: #5927E3;
-    --text-color: #1B0065;
-    --bg: rgba(217, 217, 217, 0.31);
-    --border-bg: #8E90B9;
-    --color-bottons-unselected: #F2F2F2;
-    --buttons-color-post: rgb(120, 214, 27);
-}
 
-body {
-    font-family: "Kulim Park", sans-serif;
-    background-color: white;
-}
-
-body .main_container {
-    margin: auto;
-    font-size: 20px;
-}
-
-body .main_container .main_title .Post {
+.my_property_container .main_title .Post {
     position: relative;
     margin-left: auto;
     display: flex;
@@ -35,7 +16,7 @@ body .main_container .main_title .Post {
     cursor: pointer;
 }
 
-body .main_container .main_title .Post h1{
+.my_property_container .main_title .Post h1{
     color: white;
     margin-right: 10px;
     font-weight: 500;
@@ -45,29 +26,29 @@ body .main_container .main_title .Post h1{
     margin-left: auto;
 }
 
-body .main_container .main_title .Post i{
+.my_property_container .main_title .Post i{
     font-size: 2em;
     color: white;
     margin-left: 5px;
 }
 
-body .main_container .main_title .Post:hover {
+.my_property_container .main_title .Post:hover {
     transition: 0.3s ease;
     background-color: var(--bg);
     border: solid var(--buttons-color);
 }
 
-body .main_container .main_title .Post:hover h1{
+.my_property_container .main_title .Post:hover h1{
     transition: 1s ease;
     color: var(--buttons-color);
 }
 
-body .main_container .main_title .Post:hover i{
+.my_property_container .main_title .Post:hover i{
     transition: 1s ease;
     color: var(--buttons-color);
 }
 
-body .main_container .main_title {
+.my_property_container .main_title {
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -75,13 +56,13 @@ body .main_container .main_title {
     margin: 20px 0;
 }
 
-body .main_container .main_title i {
+.my_property_container .main_title i {
     font-size: 1.5em;
     color: var(--text-color);
     margin-left: 20px;
 }
 
-body .main_container h1 {
+.my_property_container h1 {
     font-size: 30px;
     color: var(--text-color);
     margin-right: 10px;
@@ -91,13 +72,13 @@ body .main_container h1 {
     letter-spacing: 1px;
 }
 
-body .main_container i {
+.my_property_container i {
     font-size: 1em;
     color: var(--text-color);
     margin-left: 20px;
 }
 
-body .main_container .tablink {
+.my_property_container .tablink {
     color: var(--buttons-color);
     background: transparent;
     border: none;
@@ -112,7 +93,7 @@ body .main_container .tablink {
     border-radius: 4px;
 }
 
-body .main_container .tablink:after {
+.my_property_container .tablink:after {
     content: "";
     position: absolute;
     left: 0;
@@ -126,33 +107,33 @@ body .main_container .tablink:after {
     border-radius: 2px;
 }
 
-body .main_container .tablink:hover {
+.my_property_container .tablink:hover {
     transition: 1s ease;
     background: transparent;
     color: var(--text-color);
 }
 
-body .main_container .tablink:focus::after,
-body .main_container .tablink:active::after {
+.my_property_container .tablink:focus::after,
+.my_property_container .tablink:active::after {
     transform: scaleX(1);
     background-color: var(--buttons-color);
 }
 
-body .main_container .tablink+.tablink {
+.my_property_container .tablink+.tablink {
     margin-left: 80px;
 }
 
-body .main_container #Publicados,
-body .main_container #Borradores {
+.my_property_container #Publicados,
+.my_property_container #Borradores {
     background-color: var(--bg);
 }
 
-body .main_container .tabcontent {
+.my_property_container .tabcontent {
     margin-top: 20px;
     border-radius: 8px;
 }
 
-body .main_container .tabcontent .search_box {
+.my_property_container .tabcontent .search_box {
     width: 100%;
     margin-bottom: 20px;
     display: flex;
@@ -160,14 +141,14 @@ body .main_container .tabcontent .search_box {
     gap: 15px;
 }
 
-body .main_container .tabcontent .search_box .search_bar {
+.my_property_container .tabcontent .search_box .search_bar {
     width: 60%;
     position: relative;
     padding-left: 20px;
     padding-top: 20px;
 }
 
-body .main_container .tabcontent .search_box .search_bar input {
+.my_property_container .tabcontent .search_box .search_bar input {
     width: 100%;
     height: 35px;
     border-radius: 12px;
@@ -180,18 +161,18 @@ body .main_container .tabcontent .search_box .search_bar input {
     transition: ease 0.3s;
 }
 
-body .main_container .tabcontent .search_box .search_bar input:focus {
+.my_property_container .tabcontent .search_box .search_bar input:focus {
     border: solid 2px var(--buttons-color);
 }
 
-body .main_container .tabcontent .search_box .search_bar i {
+.my_property_container .tabcontent .search_box .search_bar i {
     position: absolute;
     top: 25px;
     right: 10px;
     color: #8a8a8a;
 }
 
-body .main_container .tabcontent .search_box .search_button {
+.my_property_container .tabcontent .search_box .search_button {
     width: 20%;
     height: 35px;
     border-radius: 12px;
@@ -205,43 +186,43 @@ body .main_container .tabcontent .search_box .search_button {
     transition: ease 0.3s;
 }
 
-body .main_container .tabcontent .search_box .search_button:hover {
+.my_property_container .tabcontent .search_box .search_button:hover {
     border: solid 2px var(--buttons-color);
     color: white;
     background: var(--buttons-color);
 }
 
-body .main_container .tabcontent .table {
+.my_property_container .tabcontent .table {
     width: 95%;
     margin: auto;
 }
 
-body .main_container .tabcontent .table table {
+.my_property_container .tabcontent .table table {
     width: 100%;
     border-collapse: collapse;
 }
 
-body .main_container .tabcontent .table table tr {
+.my_property_container .tabcontent .table table tr {
     border-top: 1px solid #bfc1dd;
     border-bottom: 1px solid #bfc1dd;
 }
 
-body .main_container .tabcontent .table table tr th {
+.my_property_container .tabcontent .table table tr th {
     text-align: left;
     padding: 10px 0;
     color: var(--text-color);
 }
 
-body .main_container .tabcontent .table table tr:nth-child(1) {
+.my_property_container .tabcontent .table table tr:nth-child(1) {
     border-top: none;
 }
 
-body .main_container .tabcontent .table table tr td {
+.my_property_container .tabcontent .table table tr td {
     padding: 10px 0;
     color: var(--text-color);
 }
 
-body .main_container .tabcontent .table table tr td .details_button {
+.my_property_container .tabcontent .table table tr td .details_button {
     width: 100%;
     height: 30px;
     background-color: var(--buttons-color);
@@ -255,12 +236,12 @@ body .main_container .tabcontent .table table tr td .details_button {
     transition: ease 0.3s;
 }
 
-body .main_container .tabcontent .table table tr td .details_button:hover {
+.my_property_container .tabcontent .table table tr td .details_button:hover {
     background: white;
     color: var(--buttons-color);
 }
 
-body .main_container .tabcontent .table table tr td .details_button_green {
+.my_property_container .tabcontent .table table tr td .details_button_green {
     width: 100%;
     height: 30px;
     background-color: var(--buttons-color-post);
@@ -274,7 +255,7 @@ body .main_container .tabcontent .table table tr td .details_button_green {
     transition: ease 0.3s;
 }
 
-body .main_container .tabcontent .table table tr td .details_button_green:hover {
+.my_property_container .tabcontent .table table tr td .details_button_green:hover {
     background: white;
     color: var(--buttons-color-post);
 }
