@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'users',
+    'houses',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -83,8 +85,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'AgentNetDB',
-        "USER": "lofo",
-        "PASSWORD": "lofo",
+        "USER": "luis",
+        "PASSWORD": "1409luis",
         "HOST": "localhost",
         "PORT": "1433",
         "OPTIONS": {"driver": "ODBC Driver 17 for SQL Server", },
