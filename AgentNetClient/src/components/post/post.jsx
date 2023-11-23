@@ -26,7 +26,6 @@ export function Post() {
     types: ["establishment"],
   };
 
-
   useEffect(() => {
     autoCompleteRef.current = new window.google.maps.places.Autocomplete(
       inputRef.current,
@@ -34,21 +33,18 @@ export function Post() {
     );
 
     // Agrega un listener al evento place_changed
-    autoCompleteRef.current.addListener("place_changed", handlePlaceSelect);
+    autoCompleteRef.current.addListener("place_changed", async function () {
+      const selectedPlace = await autoCompleteRef.current.getPlace();
+
+      // Accede a las coordenadas (latitud y longitud)
+      const { geometry } = selectedPlace;
+      const { location } = geometry;
+      const lat = location.lat();
+      const lng = location.lng();
+      setPosition({ lat, lng });
+      setZoom(15);
+    });
   }, []);
-
-  const handlePlaceSelect = () => {
-    // Obtiene la información del lugar seleccionado
-    const selectedPlace = autoCompleteRef.current.getPlace();
-
-    // Accede a las coordenadas (latitud y longitud)
-    const { geometry } = selectedPlace;
-    const { location } = geometry;
-    const lat = location.lat();
-    const lng = location.lng();
-    setPosition({ lat, lng });
-    setZoom(15);
-  };
 
   return (
     <div className="post-container">
