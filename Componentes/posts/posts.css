@@ -1,22 +1,3 @@
-@charset "UTF-8";
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --buttons-color: #5927E3;
-  --text-color: #1B0065;
-  --bg: rgba(217, 217, 217, 0.31);
-  --border-bg: #8E90B9;
-  --color-bottons-unselected: #F2F2F2;
-  --buttons-color-post: rgb(120, 214, 27);
-}
-
-body {
-  font-family: "Kulim Park", sans-serif;
-}
 body .m-back {
   width: 80%;
   margin: auto;
