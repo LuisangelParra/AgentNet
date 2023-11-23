@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./top-bar.css";
 
 export function TopBar(profile) {
+  const [isPopupOpen, setPopupOpen] = useState(false);
+
+  const handleLogout = () => {
+    // Lógica para cerrar sesión, por ejemplo, limpiar el token del localStorage.
+    localStorage.removeItem('token');
+    setPopupOpen(false);
+    // Redirigir a la página de inicio de sesión.
+    window.location.href = "/auth/login";
+  };
+
   return (
     <div className="nav-bar">
       <div className="right-nav-bar">
@@ -12,13 +22,17 @@ export function TopBar(profile) {
             </a>
           </li>
           <li>
-            <a className="username" href="#">
-              <h3>{ profile?.profile?.FirstName }</h3>
+            <a
+              className="username"
+              href="#"
+              onClick={() => setPopupOpen(true)}
+            >
+              <h3>{profile?.profile?.FirstName}</h3>
             </a>
           </li>
           <li>
             <a className="userimg" href="#">
-              <i className="fi-rr-portrait"></i>
+              <i className="fi-rr-portrait" onClick={() => setPopupOpen(true)}></i>
             </a>
           </li>
           <li>
@@ -28,6 +42,16 @@ export function TopBar(profile) {
           </li>
         </ul>
       </div>
+
+      {isPopupOpen && (
+        <div className="popup">
+          <div className="popup-content">
+            <p>Estás seguro de que deseas cerrar sesión?</p>
+            <button onClick={handleLogout}>Sí, cerrar sesión</button>
+            <button onClick={() => setPopupOpen(false)}>Cancelar</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
