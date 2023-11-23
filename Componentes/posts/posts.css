@@ -1,17 +1,17 @@
-body .m-back {
+.post-container.m-back {
   width: 80%;
   margin: auto;
 }
-body .m-back .back {
+.post-container.m-back .back {
   display: flex;
 }
-body .m-back .back i {
+.post-container.m-back .back i {
   font-size: 2rem;
   color: var(--text-color);
   margin-right: 5px;
   padding-top: 8px;
 }
-body .m-back .back h1 {
+.post-container.m-back .back h1 {
   font-style: normal;
   color: var(--text-color);
   margin-right: 10px;
@@ -22,11 +22,11 @@ body .m-back .back h1 {
   letter-spacing: 1px;
   padding-top: 6px;
 }
-body .main_container {
+.post-container.main_container {
   width: 80%;
   margin: auto;
 }
-body .main_container .main_title {
+.post-container.main_container .main_title {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -35,16 +35,16 @@ body .main_container .main_title {
   margin: 20px 0;
   letter-spacing: 2px;
 }
-body .main_container .main_title h1 {
+.post-container.main_container .main_title h1 {
   font-weight: 500;
   color: var(--text-color);
 }
-body .main_container .main_title i {
+.post-container.main_container .main_title i {
   font-size: 1.5em;
   color: var(--text-color);
   margin-left: 20px;
 }
-body .rectangle {
+.post-container.rectangle {
   width: 80%;
   margin: auto;
   border-radius: 10px;
@@ -52,23 +52,23 @@ body .rectangle {
   border-width: 5px;
   border-style: solid;
 }
-body .rectangle .title-rectangle {
+.post-container.rectangle .title-rectangle {
   color: var(--text-color);
   align-items: center;
 }
-body .rectangle .title-rectangle h1 {
+.post-container.rectangle .title-rectangle h1 {
   font-weight: 500;
   font-size: 40px;
   color: var(--text-color);
   margin-left: 20px;
 }
-body .rectangle .title-rectangle .container-squares {
+.post-container.rectangle .title-rectangle .container-squares {
   display: flex;
   margin-top: 8px;
   justify-content: center;
   /* Esto centrará los cuadrados horizontalmente */
 }
-body .rectangle .title-rectangle .container-squares .squares1 {
+.post-container.rectangle .title-rectangle .container-squares .squares1 {
   width: 150px;
   height: 150px;
   background-color: #D9D9D9;
@@ -78,11 +78,11 @@ body .rectangle .title-rectangle .container-squares .squares1 {
   justify-content: center;
   align-items: center;
 }
-body .rectangle .title-rectangle .container-squares .squares1 i {
+.post-container.rectangle .title-rectangle .container-squares .squares1 i {
   color: #8D8D8D;
   font-size: 2.5em;
 }
-body .rectangle .title-rectangle .container-squares .squares2 {
+.post-container.rectangle .title-rectangle .container-squares .squares2 {
   width: 150px;
   height: 150px;
   margin-right: 10px;
@@ -92,7 +92,7 @@ body .rectangle .title-rectangle .container-squares .squares2 {
   align-items: center;
   background-color: #5927E3;
 }
-body .rectangle .title-rectangle .container-squares .squares3 {
+.post-container.rectangle .title-rectangle .container-squares .squares3 {
   width: 150px;
   height: 150px;
   margin-right: 10px;
@@ -102,7 +102,7 @@ body .rectangle .title-rectangle .container-squares .squares3 {
   align-items: center;
   background-color: #3304B2;
 }
-body .rectangle .title-rectangle .container-squares .squares4 {
+.post-container.rectangle .title-rectangle .container-squares .squares4 {
   width: 150px;
   height: 150px;
   margin-right: 10px;
@@ -112,7 +112,7 @@ body .rectangle .title-rectangle .container-squares .squares4 {
   align-items: center;
   background-color: #1B0065;
 }
-body .rectangle .title-rectangle .container-squares .squares5 {
+.post-container.rectangle .title-rectangle .container-squares .squares5 {
   width: 150px;
   height: 150px;
   margin-right: 10px;
@@ -122,21 +122,21 @@ body .rectangle .title-rectangle .container-squares .squares5 {
   align-items: center;
   background-color: #1B0065;
 }
-body .rectangle .title-rectangle .subtitle-rectangle h1 {
+.post-container.rectangle .title-rectangle .subtitle-rectangle h1 {
   font-weight: 500;
   font-size: 40px;
   color: var(--text-color);
   margin-left: 20px;
   margin-top: 20px;
 }
-body .rectangle .title-rectangle .subtitle-rectangle .search_box {
+.post-container.rectangle .title-rectangle .subtitle-rectangle .search_box {
   width: 100%;
   margin-bottom: 20px;
   display: flex;
   flex-direction: row;
   gap: 15px;
 }
-body .rectangle .title-rectangle .subtitle-rectangle .search_box .search_button {
+.post-container.rectangle .title-rectangle .subtitle-rectangle .search_box .search_button {
   width: 20%;
   height: 35px;
   border-radius: 12px;
@@ -149,24 +149,24 @@ body .rectangle .title-rectangle .subtitle-rectangle .search_box .search_button 
   background: white;
   transition: ease 0.3s;
 }
-body .rectangle .title-rectangle .subtitle-rectangle .search_box .search_button .search_button:hover {
+.post-container.rectangle .title-rectangle .subtitle-rectangle .search_box .search_button .search_button:hover {
   border: solid 2px var(--buttons-color);
   color: white;
   background: var(--buttons-color);
 }
-body .rectangle .title-rectangle .subtitle-rectangle .search_box .search_bar {
+.post-container.rectangle .title-rectangle .subtitle-rectangle .search_box .search_bar {
   width: 38%;
   position: relative;
   padding-left: 20px;
   padding-top: 20px;
 }
-body .rectangle .title-rectangle .subtitle-rectangle .search_box .search_bar i {
+.post-container.rectangle .title-rectangle .subtitle-rectangle .search_box .search_bar i {
   position: absolute;
   top: 28px;
   right: 10px;
   color: #8a8a8a;
 }
-body .rectangle .title-rectangle .subtitle-rectangle .search_box .search_bar input {
+.post-container.rectangle .title-rectangle .subtitle-rectangle .search_box .search_bar input {
   width: 100%;
   height: 35px;
   border-radius: 12px;
@@ -178,13 +178,13 @@ body .rectangle .title-rectangle .subtitle-rectangle .search_box .search_bar inp
   color: #8a8a8a;
   transition: ease 0.3s;
 }
-body .rectangle .title-rectangle .subtitle-rectangle .search_box .search_bar input input:focus {
+.post-container.rectangle .title-rectangle .subtitle-rectangle .search_box .search_bar input input:focus {
   border: solid 2px var(--buttons-color);
 }
-body .rectangle .title-rectangle .subtitle-rectangle .tags {
+.post-container.rectangle .title-rectangle .subtitle-rectangle .tags {
   width: 70%;
 }
-body .rectangle .title-rectangle .subtitle-rectangle .tags h2 {
+.post-container.rectangle .title-rectangle .subtitle-rectangle .tags h2 {
   font-weight: 500;
   font-size: 40px;
   color: var(--text-color);
