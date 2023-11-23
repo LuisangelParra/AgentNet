@@ -16,8 +16,8 @@ export function MyProperties() {
                     <i className="fi-rr-document"></i>
                 </Link>
             </div>
-
-            {/* Botones de pestaña */}
+    
+                {/* Pestañas */}
             <button
                 className="tablink"
                 id="tabPublicados"
