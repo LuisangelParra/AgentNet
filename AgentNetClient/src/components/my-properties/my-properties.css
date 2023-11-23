@@ -3,16 +3,19 @@
 	margin: 0 auto;
 }
 
+.my_property_container .main_title .title{
+    display: flex;
+    align-items: center;
+}
+
 
 .my_property_container .main_title .Post {
-    position: relative;
-    margin-left: auto;
     display: flex;
     flex-direction: row;
     align-items: baseline;
     border-radius: 15px;
     background-color: var(--buttons-color);
-    padding: 10px 20px;
+    padding: 10px 15px;
     cursor: pointer;
 }
 
@@ -20,10 +23,8 @@
     color: white;
     margin-right: 10px;
     font-weight: 500;
-    font-size: 55px;
-    font-style: normal;
+    font-size: 35px;
     letter-spacing: 2px;
-    margin-left: auto;
 }
 
 .my_property_container .main_title .Post i{
@@ -33,25 +34,25 @@
 }
 
 .my_property_container .main_title .Post:hover {
-    transition: 0.3s ease;
+    transition: 0.1s ease;
     background-color: var(--bg);
     border: solid var(--buttons-color);
 }
 
 .my_property_container .main_title .Post:hover h1{
-    transition: 1s ease;
+    transition: 0.1s ease;
     color: var(--buttons-color);
 }
 
 .my_property_container .main_title .Post:hover i{
-    transition: 1s ease;
+    transition: 0.1s ease;
     color: var(--buttons-color);
 }
 
 .my_property_container .main_title {
-    width: 80%;
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: baseline;
     margin: 20px 0;
 }

@@ -3,7 +3,7 @@ import "./request-menu.css";
 
 export function RequestMenu() {
   return (
-    <div className="main_container">
+    <div className="request-container">
       <div className="main_title">
         <h1>Mis Solicitudes</h1>
         <i className="fi-rr-square-info"></i>
