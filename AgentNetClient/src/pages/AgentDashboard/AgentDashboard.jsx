@@ -12,6 +12,7 @@ import { RequestMenu } from "../../components/request-menu/request-menu";
 import { PropertyMenu } from "../../components/property-menu/property-menu";
 import { SearchProperty } from "../../components/search-property/search-property";
 import { MyProperties } from "../../components/my-properties/my-properties";
+import { Post } from "../../components/post/post";
 
 export function AgentDashboard() {
   const [userProfile, setUserProfile] = useState(null);
@@ -46,6 +47,7 @@ export function AgentDashboard() {
             <Route path="/inmuebles" element={<PropertyMenu />} />
             <Route path="/inmuebles/busqueda" element={<SearchProperty />} />
             <Route path="/inmuebles/misinmuebles" element={<MyProperties />} />
+            <Route path="/inmuebles/publicar" element={<Post />} />
             <Route path="/colecciones" element={<h1>Colecciones</h1>} />
             <Route path="/busquedas" element={<h1>Busquedas</h1>} />
             <Route path="/transacciones" element={<h1>Transacciones</h1>} />
