@@ -1,4 +1,5 @@
+# .gitignore
+.env
 venv
 AgentNetAPI/AgentNetAPI/settings.py
 .vscode/settings.json
-AgentNetAPI/AgentNetAPI/settings.py
