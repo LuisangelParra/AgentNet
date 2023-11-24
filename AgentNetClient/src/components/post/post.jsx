@@ -34,41 +34,6 @@ export function Post() {
   const [sqft, setSqft] = useState("");
   const [year_built, setYear_built] = useState("");
 
-  const handlePost = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:8000/api/houses/", {
-        name: title,
-        // address: location,
-        // longitude: lng,
-        // latitude: lat,
-        // city,
-        // state,
-        // zip_code,
-        // price,
-        // beds,
-        // baths: bathrooms,
-        // sqft,
-        // description,
-        // lot_size: totalArea,
-        // year_built,
-        // property_type: propertyType,
-        // sale_type: saleType,
-        // is_published: true,
-        profile: localStorage.getItem("profileID"),
-      }, {
-        headers: {
-          Authorization: `Token ${localStorage.getItem('token')}`,
-        },
-      });
-      console.log(response.data);
-      // Manejar la respuesta según sea necesario
-    } catch (error) {
-      console.error("Error de Post:", error.response.data);
-    }
-  }
-
-
   const [markerRef, marker] = useAdvancedMarkerRef();
   const [selectedAddress, setSelectedAddress] = useState("");
   const [position, setPosition] = useState({
@@ -87,7 +52,7 @@ export function Post() {
 
   const handleMapClick = (event) => {
     // Obtén las coordenadas del clic
-    const { lat,lng } = event.detail.latLng;
+    const { lat, lng } = event.detail.latLng;
 
     // Crea un nuevo marcador en las coordenadas del clic
     setPosition({ lat, lng });
@@ -108,6 +73,44 @@ export function Post() {
         }
       }
     });
+  };
+
+  const handlePost = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/houses/",
+        {
+          name: title,
+          // address: location,
+          longitude: position.lng,
+          latitude: position.lat,
+          // city,
+          // state,
+          // zip_code,
+          // price,
+          // beds,
+          // baths: bathrooms,
+          // sqft,
+          // description,
+          // lot_size: totalArea,
+          // year_built,
+          // property_type: propertyType,
+          // sale_type: saleType,
+          // is_published: true,
+          profile: localStorage.getItem("profileID"),
+        },
+        {
+          headers: {
+            Authorization: `Token ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      console.log(response.data);
+      // Manejar la respuesta según sea necesario
+    } catch (error) {
+      console.error("Error de Post:", error.response.data);
+    }
   };
 
   useEffect(() => {
@@ -403,14 +406,12 @@ export function Post() {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-
         </div>
         <div className="form-buttons">
           <button type="submit" className="submit-button">
             Guardar
           </button>
         </div>
-
       </form>
     </div>
   );
