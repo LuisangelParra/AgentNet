@@ -77,7 +77,6 @@ export function Post() {
 
   const handlePost = async (e) => {
     e.preventDefault();
-    console.log(selectedAddress);
     try {
       const response = await axios.post(
         "http://localhost:8000/api/houses/",
