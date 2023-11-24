@@ -12,6 +12,7 @@ import {
 import axios from "axios";
 
 export function Post() {
+  const [selectedImages, setSelectedImages] = useState([]);
   const [title, setTitle] = useState("");
   const [propertyType, setPropertyType] = useState("");
   const [saleType, setSaleType] = useState("");
@@ -33,6 +34,8 @@ export function Post() {
   const [beds, setBeds] = useState("");
   const [sqft, setSqft] = useState("");
   const [year_built, setYear_built] = useState("");
+  const [selectedImagesURLs, setSelectedImagesURLs] = useState([]);
+
 
   const [markerRef, marker] = useAdvancedMarkerRef();
   const [selectedAddress, setSelectedAddress] = useState("");
@@ -41,6 +44,28 @@ export function Post() {
     lng: -74.8592172,
   });
   const [zoom, setZoom] = useState(12);
+
+  const handleImageChange = (e, index) => {
+    const files = Array.from(e.target.files);
+
+    if (files.length > 0) {
+      // Obtén las URLs de las imágenes seleccionadas
+      const imageURL = URL.createObjectURL(files[0]);
+
+      // Actualiza el estado de las imágenes seleccionadas
+      setSelectedImagesURLs((prevURLs) => {
+        const newURLs = [...prevURLs];
+        newURLs[index - 1] = imageURL;
+        return newURLs;
+      });
+
+      setSelectedImages((prevImages) => {
+        const newImages = [...prevImages];
+        newImages[index - 1] = files[0];
+        return newImages;
+      });
+    }
+  };
 
   const autoCompleteRef = useRef();
   const inputRef = useRef();
@@ -85,19 +110,25 @@ export function Post() {
           address: selectedAddress,
           longitude: position.lng,
           latitude: position.lat,
-          // city,
-          // state,
-          // zip_code,
-          // price,
-          // beds,
-          // baths: bathrooms,
-          // sqft,
-          // description,
-          // lot_size: totalArea,
-          // year_built,
-          // property_type: propertyType,
-          // sale_type: saleType,
-          // is_published: true,
+          city,
+          state,
+          zip_code,
+          price,
+          beds,
+          baths: bathrooms,
+          sqft,
+          description,
+          lot_size: totalArea,
+          year_built,
+          property_type: propertyType,
+          sale_type: saleType,
+          is_published: true,
+          list_date: new Date(),
+          image1: images[0],
+          image2: images[1],
+          image3: images[2],
+          image4: images[3],
+          image5: images[4],
           profile: localStorage.getItem("profileID"),
         },
         {
@@ -150,40 +181,30 @@ export function Post() {
         <div className="form-images">
           <h2>Fotos</h2>
           <div className="images">
-            <div className="image image1">
-              <input type="file" id="file" />
-              <label htmlFor="file">
-                <i className="fi-rr-plus"></i>
-              </label>
-            </div>
-
-            <div className="image image2">
-              <input type="file" id="file" />
-              <label htmlFor="file">
-                <i className="fi-rr-plus"></i>
-              </label>
-            </div>
-
-            <div className="image image3">
-              <input type="file" id="file" />
-              <label htmlFor="file">
-                <i className="fi-rr-plus"></i>
-              </label>
-            </div>
-
-            <div className="image image4">
-              <input type="file" id="file" />
-              <label htmlFor="file">
-                <i className="fi-rr-plus"></i>
-              </label>
-            </div>
-
-            <div className="image image5">
-              <input type="file" id="file" />
-              <label htmlFor="file">
-                <i className="fi-rr-plus"></i>
-              </label>
-            </div>
+            {[1, 2, 3, 4, 5].map((index) => (
+              <div className={`image image${index}`} key={index}>
+                {selectedImagesURLs[index - 1] && (
+                  <img
+                    src={selectedImagesURLs[index - 1]}
+                    alt={`Imagen ${index}`}
+                    style={{ width: "100%", height: "100%", objectFit: "cover" , borderRadius: "10px"}}
+                  />
+                )}
+                {!selectedImagesURLs[index - 1] && (
+                  <>
+                    <label htmlFor={`file${index}`}>
+                      <i className="fi-rr-plus"></i>
+                    </label>
+                    <input
+                      type="file"
+                      id={`file${index}`}
+                      onChange={(e) => handleImageChange(e, index)}
+                      style={{ display: "none" }}
+                    />
+                  </>
+                )}
+              </div>
+            ))}
           </div>
         </div>
         <div className="form-location">
@@ -409,7 +430,7 @@ export function Post() {
         </div>
         <div className="form-buttons">
           <button type="submit" className="submit-button">
-            Guardar
+            Publicar
           </button>
         </div>
       </form>

@@ -1,5 +1,5 @@
 .post-container {
-    width: 85%;
+    width: 90%;
     height: 200vh;
     margin: 0 auto;
 }
@@ -343,4 +343,104 @@
 .draft-button {
     background-color: #2196f3;
     /* Color azul para el botón de Guardar como borrador */
+}
+
+.post-container .form-box .form-details {
+    width: 98%;
+    grid-column: 1;
+    grid-row: 3;
+    margin: auto;
+    margin-bottom: 2em;
+    padding: 30px;
+    background-color: #f8f9fa; /* Cambiado a un tono más claro */
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px; /* Aumentado el espacio entre las columnas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agregada sombra más suave */
+}
+
+.post-container .form-box .form-details h2 {
+    font-size: 2.5em;
+    color: var(--buttons-color); /* Cambiado el color para mayor contraste */
+    margin-bottom: 20px;
+    grid-column: span 2;
+    position: relative;
+}
+
+.post-container .form-box .form-details h2::before {
+    position: absolute;
+    width: 50px;
+    height: 3px; /* Aumentada la altura de la línea */
+    background-color: var(--buttons-color);
+    bottom: 5px;
+    left: 0;
+}
+
+.post-container .form-box .form-details .detail-input label {
+    font-size: 1.4em; /* Aumentada la tamaño de la fuente */
+    color: var(--text-color);
+}
+
+.post-container .form-box .form-details .detail-input input,
+.post-container .form-box .form-details .detail-input select {
+    width: 100%;
+    height: 50px; /* Aumentada la altura para un aspecto más moderno */
+    border-radius: 10px; /* Aumentado el radio del borde */
+    outline: none;
+    border: 2px solid var(--buttons-color);
+    font-family: "Kulim Park", sans-serif;
+    font-size: 18px; /* Aumentada la tamaño de la fuente */
+    padding-left: 15px;
+    color: #333;
+    background-color: #fff; /* Cambiado el fondo a blanco */
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.post-container .form-box .form-details .detail-input input:focus,
+.post-container .form-box .form-details .detail-input select:focus {
+    border-color: var(--buttons-color);
+    background-color: #f0f0f0; /* Cambiado el color de fondo al enfocar */
+}
+
+.post-container .form-box .form-details button {
+    background-color: var(--buttons-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    font-size: 1.3em; /* Aumentada la tamaño de la fuente */
+    grid-column: span 2;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.post-container .form-box .form-details button:hover {
+    background-color: #3d3bff; /* Cambiado el color al pasar el ratón */
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px; /* Aumentado el espacio superior */
+}
+
+.submit-button,
+.draft-button {
+    padding: 15px 30px; /* Aumentado el espacio interno */
+    cursor: pointer;
+    font-size: 18px; /* Aumentada la tamaño de la fuente */
+    border: none;
+    border-radius: 10px; /* Aumentado el radio del borde */
+    color: #fff;
+}
+
+.submit-button {
+    width: 100%;
+    height: 3.5em; /* Aumentada la altura del botón */
+    background-color: var(--buttons-color);
+}
+
+.draft-button {
+    background-color: #4caf50; /* Cambiado el color del botón de borrador */
 }
