@@ -195,7 +195,6 @@ export function Post() {
                 ref={inputRef}
                 value={selectedAddress}
                 onChange={(e) => setSelectedAddress(e.target.value)}
-                onChange={(e) => setLocation(e.target.value)}
               />
               <i className="fi-rr-search"></i>
             </div>
