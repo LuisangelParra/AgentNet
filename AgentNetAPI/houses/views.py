@@ -24,8 +24,11 @@ class HouseViewSet(viewsets.ModelViewSet):
         # Verificar si la casa tiene al menos el nombre y el perfil
         if house.name and house.profile:
             # Verificar si la casa cumple con las condiciones para estar en estado público
-            if all([getattr(house, field) for field in ['address', 'longitude', 'latitude', 'city', 'state', 'zip_code', 'price', 'beds', 'baths', 'sqft', 'lot_size', 'year_built', 'property_type', 'sale_type']] and any([house.image1, house.image2, house.image3, house.image4, house.image5])):
+            if all([getattr(house, field) for field in ['address', 'longitude', 'latitude', 'city', 'state', 'zip_code', 'price', 'beds', 'baths', 'sqft', 'lot_size', 'year_built', 'property_type', 'sale_type']]):
                 house.is_published = True
+                house.save()
+            else:
+                house.is_published = False
                 house.save()
 
     @action(detail=True, methods=['patch'])

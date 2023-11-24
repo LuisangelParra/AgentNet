@@ -407,7 +407,7 @@ export function Post() {
         </div>
         <div className="form-buttons">
           <button type="submit" className="submit-button">
-            Publicar
+            Guardar
           </button>
         </div>
 
