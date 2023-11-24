@@ -9,8 +9,66 @@ import {
   AdvancedMarker,
   useAdvancedMarkerRef,
 } from "@vis.gl/react-google-maps";
+import axios from "axios";
 
 export function Post() {
+  const [title, setTitle] = useState("");
+  const [propertyType, setPropertyType] = useState("");
+  const [saleType, setSaleType] = useState("");
+  const [totalArea, setTotalArea] = useState("");
+  const [buildArea, setBuildArea] = useState("");
+  const [rooms, setRooms] = useState("");
+  const [bathrooms, setBathrooms] = useState("");
+  const [garage, setGarage] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [images, setImages] = useState([]);
+  const [tags, setTags] = useState([]);
+  const [location, setLocation] = useState("");
+  const [lat, setLat] = useState("10.9838092");
+  const [lng, setLng] = useState("-74.8592172");
+  const [city, setCity] = useState("Barranquilla");
+  const [state, setState] = useState("");
+  const [zip_code, setZip_code] = useState("");
+  const [beds, setBeds] = useState("");
+  const [sqft, setSqft] = useState("");
+  const [year_built, setYear_built] = useState("");
+
+  const handlePost = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:8000/api/houses/", {
+        name: title,
+        // address: location,
+        // longitude: lng,
+        // latitude: lat,
+        // city,
+        // state,
+        // zip_code,
+        // price,
+        // beds,
+        // baths: bathrooms,
+        // sqft,
+        // description,
+        // lot_size: totalArea,
+        // year_built,
+        // property_type: propertyType,
+        // sale_type: saleType,
+        // is_published: true,
+        profile: localStorage.getItem("profileID"),
+      }, {
+        headers: {
+          Authorization: `Token ${localStorage.getItem('token')}`,
+        },
+      });
+      console.log(response.data);
+      // Manejar la respuesta según sea necesario
+    } catch (error) {
+      console.error("Error de Post:", error.response.data);
+    }
+  }
+
+
   const [markerRef, marker] = useAdvancedMarkerRef();
   const [position, setPosition] = useState({
     lat: 10.9838092,
@@ -59,7 +117,7 @@ export function Post() {
         <i className="fi-rr-square-info"></i>
       </div>
 
-      <form className="form-box">
+      <form className="form-box" onSubmit={handlePost}>
         <div className="form-images">
           <h2>Fotos</h2>
           <div className="images">
@@ -109,6 +167,7 @@ export function Post() {
                 id="search_bar"
                 placeholder="Buscar la dirección del inmueble"
                 ref={inputRef}
+                onChange={(e) => setLocation(e.target.value)}
               />
               <i className="fi-rr-search"></i>
             </div>
@@ -162,8 +221,10 @@ export function Post() {
               name="title"
               id="title"
               placeholder="Escribe un título para tu inmueble"
+              onChange={(e) => setTitle(e.target.value)}
             />
           </div>
+
           <div className="detail-input">
             <label htmlFor="property-type">Tipo de inmueble</label>
             <select name="property-type" id="">
@@ -173,6 +234,72 @@ export function Post() {
               <option value="local">Local</option>
               <option value="lote">Lote</option>
             </select>
+          </div>
+
+          <div className="detail-input">
+            <label htmlFor="rooms">Zip Code</label>
+            <input
+              type="number"
+              name="ZipCode"
+              id="ZipCode"
+              placeholder="Escribe el Zip Code"
+              onChange={(e) => setZip_code(e.target.value)}
+            />
+          </div>
+
+          <div className="detail-input">
+            <label htmlFor="price">Precio</label>
+            <input
+              type="number"
+              name="price"
+              id="price"
+              placeholder="Escribe el precio"
+              onChange={(e) => setPrice(e.target.value)}
+            />
+          </div>
+
+          <div className="detail-input">
+            <label htmlFor="beds">Habitaciones</label>
+            <input
+              type="number"
+              name="beds"
+              id="beds"
+              placeholder="Escribe el número de habitaciones"
+              onChange={(e) => setBeds(e.target.value)}
+            />
+          </div>
+
+          <div className="detail-input">
+            <label htmlFor="baths">Baños</label>
+            <input
+              type="number"
+              name="baths"
+              id="baths"
+              placeholder="Escribe el número de baños"
+              onChange={(e) => setBathrooms(e.target.value)}
+            />
+          </div>
+
+          <div className="detail-input">
+            <label htmlFor="sqft">Sqft</label>
+            <input
+              type="number"
+              name="sqft"
+              id="sqft"
+              placeholder="Escribe el Sqft"
+              onChange={(e) => setSqft(e.target.value)}
+            />
+          </div>
+
+          <div className="detail-input">
+            <label htmlFor="year_built">Año de construcción</label>
+            <input
+              type="number"
+              name="year_built"
+              id="year_built"
+              placeholder="Escribe el año de construcción"
+              onChange={(e) => setYear_built(e.target.value)}
+            />
           </div>
 
           <div className="detail-input">
@@ -190,8 +317,10 @@ export function Post() {
               name="total-area"
               id="total-area"
               placeholder="Escribe el área total"
+              onChange={(e) => setTotalArea(e.target.value)}
             />
           </div>
+
           <div className="detail-input">
             <label htmlFor="build-area">Area Construida</label>
             <input
@@ -199,8 +328,10 @@ export function Post() {
               name="build-area"
               id="build-area"
               placeholder="Escribe el área total construida"
+              onChange={(e) => setBuildArea(e.target.value)}
             />
           </div>
+
           <div className="detail-input">
             <label htmlFor="rooms">Habitaciones</label>
             <input
@@ -208,8 +339,10 @@ export function Post() {
               name="rooms"
               id="rooms"
               placeholder="Escribe el número de habitaciones"
+              onChange={(e) => setRooms(e.target.value)}
             />
           </div>
+
           <div className="detail-input">
             <label htmlFor="bathrooms">Baños</label>
             <input
@@ -217,8 +350,10 @@ export function Post() {
               name="bathrooms"
               id="bathrooms"
               placeholder="Escribe el número de baños"
+              onChange={(e) => setBathrooms(e.target.value)}
             />
           </div>
+
           <div className="detail-input">
             <label htmlFor="garage">Garaje</label>
             <input
@@ -226,6 +361,7 @@ export function Post() {
               name="garage"
               id="garage"
               placeholder="Escribe el número de garajes"
+              onChange={(e) => setGarage(e.target.value)}
             />
           </div>
 
@@ -236,19 +372,17 @@ export function Post() {
               name="description"
               id="description"
               placeholder="Breve descripción"
+              onChange={(e) => setDescription(e.target.value)}
             />
           </div>
 
-          <div className="detail-input">
-            <label htmlFor="price">Precio</label>
-            <input
-              type="number"
-              name="price"
-              id="price"
-              placeholder="Escribe el precio"
-            />
-          </div>
         </div>
+        <div className="form-buttons">
+          <button type="submit" className="submit-button">
+            Publicar
+          </button>
+        </div>
+
       </form>
     </div>
   );

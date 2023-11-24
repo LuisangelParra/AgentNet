@@ -1,6 +1,6 @@
 .post-container {
     width: 85%;
-    height:170vh;
+    height: 170vh;
     margin: 0 auto;
 }
 
@@ -24,18 +24,7 @@
     padding-top: 8px;
 }
 
-.post-container .back span {
-    font-style: normal;
-    color: var(--text-color);
-    margin-right: 10px;
-    font-weight: 500;
-    align-items: center;
-    font-size: 30px;
-    font-style: normal;
-    letter-spacing: 1px;
-    padding-top: 6px;
-}
-
+.post-container .back span,
 .post-container .m-back .back h1 {
     font-style: normal;
     color: var(--text-color);
@@ -43,7 +32,6 @@
     font-weight: 500;
     align-items: center;
     font-size: 30px;
-    font-style: normal;
     letter-spacing: 1px;
     padding-top: 6px;
 }
@@ -73,19 +61,18 @@
     width: 100%;
     border-radius: 10px;
     border: 3px solid #D9D9D9;
-    border-width: 3px;
-    border-style: solid;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.post-container .form-box .form-images{
+.post-container .form-box .form-images {
     width: 90%;
     grid-column: 1;
     grid-row: 1;
 }
-.post-container .form-box .form-images h2{
+
+.post-container .form-box .form-images h2 {
     font-size: 2em;
     color: var(--text-color);
     display: flex;
@@ -95,7 +82,7 @@
 
 .post-container .form-box .form-images .images {
     display: flex;
-    align-self:center;
+    align-self: center;
     justify-content: center;
     gap: 10px;
 }
@@ -111,24 +98,24 @@
     cursor: pointer;
 }
 
-.post-container .form-box .form-images .images .image:hover{
+.post-container .form-box .form-images .images .image:hover {
     border: 3px solid var(--buttons-color);
 }
 
-.post-container .form-box .form-images .images .image>input  {
+.post-container .form-box .form-images .images .image>input {
     display: none;
 }
 
-.post-container .form-box .form-images .images .image i{
+.post-container .form-box .form-images .images .image i {
     font-size: 2em;
     color: #8D8D8D;
     cursor: pointer;
 }
 
-.post-container .form-box .form-location{
+.post-container .form-box .form-location {
     width: 90%;
     grid-column: 1;
-    grid-row: 2; 
+    grid-row: 2;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
@@ -136,7 +123,7 @@
     margin-bottom: 2rem;
 }
 
-.post-container .form-box .form-location h2{
+.post-container .form-box .form-location h2 {
     font-size: 2em;
     color: var(--text-color);
     display: flex;
@@ -144,12 +131,12 @@
     margin: 10px 0;
 }
 
-.post-container .form-box .form-location .search_box{
+.post-container .form-box .form-location .search_box {
     grid-column: 1/2;
     width: 100%;
 }
 
-.post-container .form-box .form-location .search_box .search_bar{
+.post-container .form-box .form-location .search_box .search_bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -163,12 +150,13 @@
     padding-right: 1em;
 }
 
-.post-container .form-box .form-location .search_box .search_bar input{
+.post-container .form-box .form-location .search_box .search_bar input {
     width: 90%;
     border: none;
     outline: none;
     font-size: 16px;
 }
+
 .post-container .form-box .form-location .search_box .search_bar i {
     display: flex;
     align-items: center;
@@ -176,7 +164,7 @@
     color: var(--buttons-color);
 }
 
-.post-container .form-box .form-location .search_box .search_bar_tags{
+.post-container .form-box .form-location .search_box .search_bar_tags {
     display: flex;
     align-items: center;
     width: 60%;
@@ -188,7 +176,7 @@
     padding-left: 1em;
 }
 
-.post-container .form-box .form-location .search_box .search_bar_tags input{
+.post-container .form-box .form-location .search_box .search_bar_tags input {
     width: 90%;
     border: none;
     outline: none;
@@ -202,7 +190,7 @@
     color: var(--buttons-color);
 }
 
-.post-container .form-box .form-location .search_box .tag-list{
+.post-container .form-box .form-location .search_box .tag-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
@@ -210,7 +198,7 @@
     margin-bottom: 10px;
 }
 
-.post-container .form-box .form-location .search_box .tag-list .tag{
+.post-container .form-box .form-location .search_box .tag-list .tag {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -220,14 +208,14 @@
     padding: 0.5em 1em;
 }
 
-.post-container .form-box .form-location .search_box .tag-list .tag i{
+.post-container .form-box .form-location .search_box .tag-list .tag i {
     font-size: 1.2em;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.post-container .form-box .form-location .map{
+.post-container .form-box .form-location .map {
     grid-column: 2;
     width: 90%;
     height: 300px;
@@ -236,17 +224,17 @@
     background-color: var(--buttons-color);
 }
 
-.post-container .form-box .form-location .map #map1{
+.post-container .form-box .form-location .map #map1 {
     width: 100%;
     height: 100%;
     border-radius: 12px;
 }
-.post-container .form-box .form-location .map #map1:hover{
+
+.post-container .form-box .form-location .map #map1:hover {
     border: 3px solid var(--buttons-color);
 }
 
-
-.post-container .form-box .form-details{
+.post-container .form-box .form-details {
     width: 90%;
     grid-column: 1;
     grid-row: 3;
@@ -254,7 +242,7 @@
     margin-bottom: 2em;
 }
 
-.post-container .form-box .form-details h2{
+.post-container .form-box .form-details h2 {
     font-size: 2em;
     color: var(--text-color);
     display: flex;
@@ -262,21 +250,21 @@
     margin: 20px 0;
 }
 
-.post-container .form-box .form-details .detail-input{
+.post-container .form-box .form-details .detail-input {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
     margin-top: 10px;
 }
 
-.post-container .form-box .form-details .detail-input label{
+.post-container .form-box .form-details .detail-input label {
     font-size: 1.2em;
     color: var(--text-color);
     display: flex;
     align-items: center;
 }
 
-.post-container .form-box .form-details .detail-input input{
+.post-container .form-box .form-details .detail-input input {
     width: 100%;
     height: 40px;
     border-radius: 12px;
@@ -288,4 +276,71 @@
     color: #8a8a8a;
     background-color: #E5E7FF;
     transition: ease 0.3s;
+}
+
+.post-container .form-box .form-details .detail-input select {
+    width: 100%;
+    height: 40px;
+    border-radius: 12px;
+    outline: none;
+    border: solid 2px var(--buttons-color);
+    font-family: "Kulim Park", sans-serif;
+    font-size: 16px;
+    color: #8a8a8a;
+    background-color: #E5E7FF;
+    transition: ease 0.3s;
+}
+
+.post-container .form-box .form-details .detail-input input:focus,
+.post-container .form-box .form-details .detail-input select:focus {
+    border-color: var(--buttons-color);
+}
+
+.post-container .form-box .form-details button {
+    background-color: var(--buttons-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.post-container .form-box .form-details button:hover {
+    background-color: #5248e8;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.submit-button,
+.draft-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.submit-button {
+    width: 100%;
+    height: 3em;
+    background-color: var(--buttons-color);
+    color: var(--white-color);
+    border-width: 0;
+    border-style: solid;
+    border-radius: 0.6em;
+    font-size: 1.1em;
+    font-weight: 700;
+    /* Color verde para el botón de Publicar */
+}
+
+.draft-button {
+    background-color: #2196f3;
+    /* Color azul para el botón de Guardar como borrador */
 }
