@@ -334,7 +334,7 @@ export function Post() {
           </div>
 
           <div className="detail-input">
-            <label htmlFor="sale-type">Garaje</label>
+            <label htmlFor="sale-type">Tipo de operación</label>
             <select name="sale-type" id="sale-type">
               <option value="sale">Vender</option>
               <option value="rent">Arrendar</option>
