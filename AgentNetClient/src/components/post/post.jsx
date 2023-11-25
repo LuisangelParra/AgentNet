@@ -33,7 +33,6 @@ export function Post() {
   const [year_built, setYear_built] = useState("");
   const [selectedImagesURLs, setSelectedImagesURLs] = useState([]);
 
-
   const [markerRef, marker] = useAdvancedMarkerRef();
   const [selectedAddress, setSelectedAddress] = useState("");
   const [position, setPosition] = useState({
@@ -41,12 +40,12 @@ export function Post() {
     lng: -74.8592172,
   });
   const [zoom, setZoom] = useState(12);
-  
+
   const handleImageChange = (e, index) => {
     const files = [];
     files.push(e);
 
-    setImages(files)
+    setImages(files);
 
     if (files.length > 0) {
       // Obtén las URLs de las imágenes seleccionadas
@@ -145,7 +144,7 @@ export function Post() {
         {
           headers: {
             Authorization: `Token ${localStorage.getItem("token")}`,
-            'content-type': 'multipart/form-data'
+            "content-type": "multipart/form-data",
           },
         }
       );
@@ -198,7 +197,12 @@ export function Post() {
                   <img
                     src={selectedImagesURLs[index - 1]}
                     alt={`Imagen ${index}`}
-                    style={{ width: "100%", height: "100%", objectFit: "cover" , borderRadius: "10px"}}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      borderRadius: "10px",
+                    }}
                   />
                 )}
                 {!selectedImagesURLs[index - 1] && (
@@ -209,7 +213,9 @@ export function Post() {
                     <input
                       type="file"
                       id={`file${index}`}
-                      onChange={(e) => handleImageChange(e.target.files[0], index)}
+                      onChange={(e) =>
+                        handleImageChange(e.target.files[0], index)
+                      }
                       style={{ display: "none" }}
                     />
                   </>
@@ -290,7 +296,12 @@ export function Post() {
 
           <div className="detail-input">
             <label htmlFor="property-type">Tipo de inmueble</label>
-            <select name="property-type" id="" value="apartamento" onChange={(e) => setPropertyType(e.target.value)}>
+            <select
+              name="property-type"
+              id=""
+              value="apartamento"
+              onChange={(e) => setPropertyType(e.target.value)}
+            >
               <option value="apartamento">Apartamento</option>
               <option value="casa">Casa</option>
               <option value="oficina">Oficina</option>
@@ -367,7 +378,12 @@ export function Post() {
 
           <div className="detail-input">
             <label htmlFor="sale-type">Tipo de operación</label>
-            <select name="sale-type" id="sale-type" value={"Venta"} onChange={e => setSaleType(e.target.value)}>
+            <select
+              name="sale-type"
+              id="sale-type"
+              value={"Venta"}
+              onChange={(e) => setSaleType(e.target.value)}
+            >
               <option value="Venta">Vender</option>
               <option value="Arriendo">Arrendar</option>
             </select>
@@ -398,6 +414,9 @@ export function Post() {
         <div className="form-buttons">
           <button type="submit" className="submit-button">
             Publicar
+          </button>
+          <button type="submit" className="delete-button">
+            Eliminar
           </button>
         </div>
       </form>

@@ -211,6 +211,9 @@ export function MyProperties() {
                       <td>
                         <div className="details_button_green">PUBLICAR</div>
                       </td>
+                      <td>
+                        <div className="details_button_red">PUBLICAR</div>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
