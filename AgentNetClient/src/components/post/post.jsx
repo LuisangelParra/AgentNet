@@ -14,8 +14,8 @@ import axios from "axios";
 export function Post() {
   const [selectedImages, setSelectedImages] = useState([]);
   const [title, setTitle] = useState("");
-  const [propertyType, setPropertyType] = useState("");
-  const [saleType, setSaleType] = useState("");
+  const [propertyType, setPropertyType] = useState("apartamento");
+  const [saleType, setSaleType] = useState("Vender");
   const [totalArea, setTotalArea] = useState("");
   const [rooms, setRooms] = useState("");
   const [bathrooms, setBathrooms] = useState("");
@@ -347,7 +347,6 @@ export function Post() {
             <select
               name="property-type"
               id=""
-              value="apartamento"
               onChange={(e) => setPropertyType(e.target.value)}
             >
               <option value="apartamento">Apartamento</option>
@@ -429,7 +428,6 @@ export function Post() {
             <select
               name="sale-type"
               id="sale-type"
-              value={"Venta"}
               onChange={(e) => setSaleType(e.target.value)}
             >
               <option value="Venta">Vender</option>

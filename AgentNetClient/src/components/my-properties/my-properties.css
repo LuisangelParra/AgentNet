@@ -168,9 +168,10 @@
 
 .my_property_container .tabcontent .search_box .search_bar i {
     position: absolute;
-    top: 25px;
+    top: 1.5em;
     right: 10px;
     color: #8a8a8a;
+    font-size: 1.2em;
 }
 
 .my_property_container .tabcontent .search_box .search_button {
@@ -221,6 +222,12 @@
 .my_property_container .tabcontent .table table tr td {
     padding: 10px 0;
     color: var(--text-color);
+}
+
+.my_property_container .tabcontent .table table tr td img {
+    width: 30px;
+    height: 30px;
+    border-radius: 1px;
 }
 
 .my_property_container .tabcontent .table table tr td .details_button {

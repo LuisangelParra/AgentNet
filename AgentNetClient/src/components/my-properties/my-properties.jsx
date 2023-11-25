@@ -30,7 +30,6 @@ export function MyProperties() {
 
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
           setProperties(data);
         } else {
           console.error("Error al obtener propiedades");
@@ -115,7 +114,6 @@ export function MyProperties() {
                         className="check_button"
                       />
                     </th>
-                    <th>Foto</th>
                     <th>Ubicación</th>
                     <th>Operación</th>
                     <th>Tipo</th>
@@ -136,7 +134,6 @@ export function MyProperties() {
                           className="check_button"
                         />
                       </td>
-                      <td>{property.photo}</td>
                       <td>{property.city}</td>
                       <td>{property.sale_type}</td>
                       <td>{property.property_type}</td>
@@ -179,7 +176,6 @@ export function MyProperties() {
                         className="check_button"
                       />
                     </th>
-                    <th>Foto</th>
                     <th>Ubicación</th>
                     <th>Operación</th>
                     <th>Tipo</th>
@@ -200,7 +196,6 @@ export function MyProperties() {
                           className="check_button"
                         />
                       </td>
-                      <td>{property.photo}</td>
                       <td>{property.city}</td>
                       <td>{property.sale_type}</td>
                       <td>{property.property_type}</td>

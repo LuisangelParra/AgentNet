@@ -30,6 +30,7 @@ class House(models.Model):
     sale_type = models.CharField(max_length=200, null=True, blank=True)
     is_published = models.BooleanField(default=False)
     list_date = models.DateTimeField(auto_now_add=True)
+    description = models.TextField(null=True, blank=True)
 
     # Campos para imágenes
     image1 = models.ImageField(upload_to=house_image_path, null=True, blank=True)
