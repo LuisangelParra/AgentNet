@@ -267,3 +267,22 @@
     background: white;
     color: var(--buttons-color-post);
 }
+
+.my_property_container .tabcontent .table table tr td .details_button_red {
+    width: 80%;
+    height: 30px;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50px;
+    cursor: pointer;
+    border: solid rgb(255, 110, 110) 2px;
+    transition: ease 0.3s;
+}
+
+.my_property_container .tabcontent .table table tr td .details_button_red:hover {
+    background: white;
+    color: red;
+}
