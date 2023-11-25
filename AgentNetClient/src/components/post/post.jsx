@@ -32,7 +32,7 @@ export function Post() {
   const [sqft, setSqft] = useState("");
   const [year_built, setYear_built] = useState("");
   const [selectedImagesURLs, setSelectedImagesURLs] = useState([]);
-  const [userData, setUserData] = useState(null);
+
 
   const [markerRef, marker] = useAdvancedMarkerRef();
   const [selectedAddress, setSelectedAddress] = useState("");
@@ -41,12 +41,12 @@ export function Post() {
     lng: -74.8592172,
   });
   const [zoom, setZoom] = useState(12);
-
+  
   const handleImageChange = (e, index) => {
     const files = [];
     files.push(e);
 
-    setImages(files);
+    setImages(files)
 
     if (files.length > 0) {
       // Obtén las URLs de las imágenes seleccionadas
@@ -111,57 +111,10 @@ export function Post() {
     });
   };
 
-  useEffect(() => {
-    // Realiza una solicitud GET para obtener la información del perfil del usuario
-    const fetchUserData = async () => {
-      try {
-        const profileID = localStorage.getItem("profileID");
-        const response = await axios.get(
-          `http://127.0.0.1:8000/api/profile/${profileID}/`,
-          {
-            headers: {
-              Authorization: `Token ${localStorage.getItem("token")}`,
-            },
-          }
-        );
-
-        // Almacena la información del perfil del usuario en el estado
-        setUserData(response.data);
-      } catch (error) {
-        console.error(
-          "Error al obtener la información del perfil del usuario:",
-          error
-        );
-      }
-    };
-
-    // Llama a la función para obtener la información del perfil del usuario
-    fetchUserData();
-  }, []);
+  //
 
   const handlePost = async (e) => {
     e.preventDefault();
-    if (userData) {
-      const userFields = [
-        userData.FirstName,
-        userData.LastName,
-        userData.PhoneNumber,
-        userData.City,
-        userData.State,
-        userData.Description,
-        userData.Premium,
-        userData.user,
-      ];
-      const anyFieldEmpty = userFields.some(
-        (field) => field === null || field === ""
-      );
-
-      if (anyFieldEmpty) {
-        // Redirige al usuario a la página de configuración si algún dato está vacío
-        window.location.href = "http://localhost:5173/dashboard/configuración";
-        return;
-      }
-    }
     try {
       const response = await axios.post(
         "http://localhost:8000/api/houses/",
@@ -192,7 +145,7 @@ export function Post() {
         {
           headers: {
             Authorization: `Token ${localStorage.getItem("token")}`,
-            "content-type": "multipart/form-data",
+            'content-type': 'multipart/form-data'
           },
         }
       );
@@ -245,12 +198,7 @@ export function Post() {
                   <img
                     src={selectedImagesURLs[index - 1]}
                     alt={`Imagen ${index}`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      borderRadius: "10px",
-                    }}
+                    style={{ width: "100%", height: "100%", objectFit: "cover" , borderRadius: "10px"}}
                   />
                 )}
                 {!selectedImagesURLs[index - 1] && (
@@ -261,9 +209,7 @@ export function Post() {
                     <input
                       type="file"
                       id={`file${index}`}
-                      onChange={(e) =>
-                        handleImageChange(e.target.files[0], index)
-                      }
+                      onChange={(e) => handleImageChange(e.target.files[0], index)}
                       style={{ display: "none" }}
                     />
                   </>
