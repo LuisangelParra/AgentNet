@@ -12,28 +12,7 @@ import {
 import axios from "axios";
 
 export function Post() {
-  const [selectedImages, setSelectedImages] = useState([]);
-  const [title, setTitle] = useState("");
-  const [propertyType, setPropertyType] = useState("");
-  const [saleType, setSaleType] = useState("");
-  const [totalArea, setTotalArea] = useState("");
-  const [rooms, setRooms] = useState("");
-  const [bathrooms, setBathrooms] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [images, setImages] = useState([]);
-  const [tags, setTags] = useState([]);
-  const [location, setLocation] = useState("");
-  const [lat, setLat] = useState("10.9838092");
-  const [lng, setLng] = useState("-74.8592172");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [zip_code, setZip_code] = useState("");
-  const [sqft, setSqft] = useState("");
-  const [year_built, setYear_built] = useState("");
-  const [selectedImagesURLs, setSelectedImagesURLs] = useState([]);
-
-
+  // MAPA
   const [markerRef, marker] = useAdvancedMarkerRef();
   const [selectedAddress, setSelectedAddress] = useState("");
   const [position, setPosition] = useState({
@@ -41,31 +20,6 @@ export function Post() {
     lng: -74.8592172,
   });
   const [zoom, setZoom] = useState(12);
-  
-  const handleImageChange = (e, index) => {
-    const files = [];
-    files.push(e);
-
-    setImages(files)
-
-    if (files.length > 0) {
-      // Obtén las URLs de las imágenes seleccionadas
-      const imageURL = URL.createObjectURL(e);
-
-      // Actualiza el estado de las imágenes seleccionadas
-      setSelectedImagesURLs((prevURLs) => {
-        const newURLs = [...prevURLs];
-        newURLs[index - 1] = imageURL;
-        return newURLs;
-      });
-
-      setSelectedImages((prevImages) => {
-        const newImages = [...prevImages];
-        newImages[index - 1] = files[0];
-        return newImages;
-      });
-    }
-  };
 
   const autoCompleteRef = useRef();
   const inputRef = useRef();
@@ -95,66 +49,67 @@ export function Post() {
         if (results[0]) {
           const formattedAddress = results[0].formatted_address;
           setSelectedAddress(formattedAddress);
-
-          // Obtén la ciudad y el estado
-          const addressComponents = results[0].address_components;
-          const city = addressComponents.find(
-            (component) => component.types[0] === "locality"
-          );
-          const state = addressComponents.find(
-            (component) => component.types[0] === "administrative_area_level_1"
-          );
-          setCity(city.long_name);
-          setState(state.long_name);
         }
       }
+    });
+  };
+  //
+
+  //POST
+  const [state, setState] = useState({
+    name: "",
+    address: "",
+    longitude: null,
+    latitude: null,
+    city: "",
+    state: "",
+    zip_code: null,
+    price: null,
+    beds: null,
+    baths: null,
+    sqft: null,
+    description: "",
+    lot_size: null,
+    year_built: null,
+    property_type: "",
+    sale_type: "",
+    is_published: false,
+    image1: null,
+    image2: null,
+    image3: null,
+    image4: null,
+    image5: null,
+    profile: null,
+  });
+
+  const handleChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value
+    })
+  };
+
+  //
+
+  // IMAGENES
+  const [selectedImages, setSelectedImages] = useState([]);
+  const [selectedImagesURLs, setSelectedImagesURLs] = useState([]);
+  const handleImageChange = (e) => {
+    this.setState({
+        [e.target.id]: e.target.files[0],
     });
   };
 
   //
 
+  //POST
+
   const handlePost = async (e) => {
     e.preventDefault();
-    console.log(images)
-    try {
-      const response = await axios.post(
-        "http://localhost:8000/api/houses/",
-        {
-          name: title,
-          address: selectedAddress,
-          longitude: position.lng,
-          latitude: position.lat,
-          city: city,
-          state: state,
-          zip_code: zip_code,
-          price: price,
-          beds: rooms,
-          baths: bathrooms,
-          sqft: sqft,
-          description: description,
-          lot_size: totalArea,
-          year_built: year_built,
-          property_type: propertyType,
-          sale_type: saleType,
-          image1: images[0],
-          image2: images[1],
-          image3: images[2],
-          image4: images[3],
-          image5: images[4],
-          profile: localStorage.getItem("profileID"),
-        },
-        {
-          headers: {
-            Authorization: `Token ${localStorage.getItem("token")}`,
-            'content-type': 'multipart/form-data'
-          },
-        }
-      );
-      console.log(response.data);
-    } catch (error) {
-      console.error("Error de Post:", error.response.data);
-    }
+    console.log(this.state);
+    let form_data = new FormData();
   };
+
+  //USEEFFECT
 
   useEffect(() => {
     autoCompleteRef.current = new window.google.maps.places.Autocomplete(
@@ -175,6 +130,8 @@ export function Post() {
       setZoom(15);
     });
   }, []);
+
+  //
 
   return (
     <div className="post-container">
@@ -199,7 +156,12 @@ export function Post() {
                   <img
                     src={selectedImagesURLs[index - 1]}
                     alt={`Imagen ${index}`}
-                    style={{ width: "100%", height: "100%", objectFit: "cover" , borderRadius: "10px"}}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      borderRadius: "10px",
+                    }}
                   />
                 )}
                 {!selectedImagesURLs[index - 1] && (
@@ -209,8 +171,8 @@ export function Post() {
                     </label>
                     <input
                       type="file"
-                      id={`file${index}`}
-                      onChange={(e) => handleImageChange(e.target.files[0], index)}
+                      id={`image${index}`}
+                      onChange={handleImageChange}
                       style={{ display: "none" }}
                     />
                   </>
@@ -226,11 +188,11 @@ export function Post() {
               <input
                 type="text"
                 name="search_bar"
-                id="search_bar"
+                id="address"
                 placeholder="Buscar la dirección del inmueble"
                 ref={inputRef}
                 value={selectedAddress}
-                onChange={(e) => setSelectedAddress(e.target.value)}
+                onChange={handleChange}
               />
               <i className="fi-rr-search"></i>
             </div>
@@ -285,13 +247,14 @@ export function Post() {
               name="title"
               id="title"
               placeholder="Escribe un título para tu inmueble"
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={handleChange}
+              required
             />
           </div>
 
           <div className="detail-input">
             <label htmlFor="property-type">Tipo de inmueble</label>
-            <select name="property-type" id="" value="apartamento" onChange={(e) => setPropertyType(e.target.value)}>
+            <select name="property-type" id="property_type" onChange={this.handleChange}>
               <option value="apartamento">Apartamento</option>
               <option value="casa">Casa</option>
               <option value="oficina">Oficina</option>
@@ -305,9 +268,9 @@ export function Post() {
             <input
               type="number"
               name="ZipCode"
-              id="ZipCode"
+              id="zip_code"
               placeholder="Escribe el Zip Code"
-              onChange={(e) => setZip_code(e.target.value)}
+              onChange={this.handleChange}
             />
           </div>
 
@@ -318,7 +281,7 @@ export function Post() {
               name="price"
               id="price"
               placeholder="Escribe el precio"
-              onChange={(e) => setPrice(e.target.value)}
+              onChange={this.handleChange}
             />
           </div>
 
@@ -329,7 +292,7 @@ export function Post() {
               name="beds"
               id="beds"
               placeholder="Escribe el número de habitaciones"
-              onChange={(e) => setRooms(e.target.value)}
+              onChange={this.handleChange}
             />
           </div>
 
@@ -340,7 +303,7 @@ export function Post() {
               name="baths"
               id="baths"
               placeholder="Escribe el número de baños"
-              onChange={(e) => setBathrooms(e.target.value)}
+              onChange={this.handleChange}
             />
           </div>
 
@@ -351,7 +314,7 @@ export function Post() {
               name="sqft"
               id="sqft"
               placeholder="Escribe el Sqft"
-              onChange={(e) => setSqft(e.target.value)}
+              onChange={this.handleChange}
             />
           </div>
 
@@ -362,15 +325,15 @@ export function Post() {
               name="year_built"
               id="year_built"
               placeholder="Escribe el año de construcción"
-              onChange={(e) => setYear_built(e.target.value)}
+              onChange={this.handleChange}
             />
           </div>
 
           <div className="detail-input">
             <label htmlFor="sale-type">Tipo de operación</label>
-            <select name="sale-type" id="sale-type" value={"Venta"} onChange={e => setSaleType(e.target.value)}>
-              <option value="Venta">Vender</option>
-              <option value="Arriendo">Arrendar</option>
+            <select name="sale-type" id="sale_type" onChange={this.handleChange}>
+              <option value="sale">Vender</option>
+              <option value="rent">Arrendar</option>
             </select>
           </div>
 
@@ -379,9 +342,53 @@ export function Post() {
             <input
               type="number"
               name="total-area"
-              id="total-area"
+              id="lot_size"
               placeholder="Escribe el área total"
-              onChange={(e) => setTotalArea(e.target.value)}
+              onChange={this.handleChange}
+            />
+          </div>
+
+          <div className="detail-input">
+            <label htmlFor="build-area">Area Construida</label>
+            <input
+              type="number"
+              name="build-area"
+              id="build-area"
+              placeholder="Escribe el área total construida"
+              onChange={(e) => setBuildArea(e.target.value)}
+            />
+          </div>
+
+          <div className="detail-input">
+            <label htmlFor="rooms">Habitaciones</label>
+            <input
+              type="number"
+              name="rooms"
+              id="rooms"
+              placeholder="Escribe el número de habitaciones"
+              onChange={(e) => setRooms(e.target.value)}
+            />
+          </div>
+
+          <div className="detail-input">
+            <label htmlFor="bathrooms">Baños</label>
+            <input
+              type="number"
+              name="bathrooms"
+              id="bathrooms"
+              placeholder="Escribe el número de baños"
+              onChange={(e) => setBathrooms(e.target.value)}
+            />
+          </div>
+
+          <div className="detail-input">
+            <label htmlFor="garage">Garaje</label>
+            <input
+              type="number"
+              name="garage"
+              id="garage"
+              placeholder="Escribe el número de garajes"
+              onChange={(e) => setGarage(e.target.value)}
             />
           </div>
 
