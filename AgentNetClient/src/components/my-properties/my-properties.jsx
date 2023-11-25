@@ -9,13 +9,19 @@ export function MyProperties() {
   const [properties, setProperties] = useState([]);
   const [isPublished, setIsPublished] = useState(true);
 
+  function handleTab() {
+    if (activeTab === "Publicados") {
+      setIsPublished(false);
+      setActiveTab("Borradores");
+    } else {
+      
+      setIsPublished(true);
+      setActiveTab("Publicados");
+    }
+  }
+
   useEffect(() => {
     // Función para obtener las propiedades de la API
-    if (activeTab === "Publicados") {
-      setIsPublished(true);
-    } else if (activeTab === "Borradores") {
-      setIsPublished(false);
-    }
     const fetchProperties = async () => {
       try {
         const response = await fetch(
@@ -24,6 +30,7 @@ export function MyProperties() {
 
         if (response.ok) {
           const data = await response.json();
+          console.log(data);
           setProperties(data);
         } else {
           console.error("Error al obtener propiedades");
@@ -35,7 +42,7 @@ export function MyProperties() {
 
     // Llamar a la función para obtener propiedades al cambiar la pestaña activa
     fetchProperties();
-  }, [activeTab, isPublished]);
+  }, [activeTab]);
 
   return (
     <div className="my_property_container">
@@ -60,7 +67,8 @@ export function MyProperties() {
               ? "color_que_deseas_para_publicados"
               : "",
         }}
-        onClick={() => setActiveTab("Publicados")}
+        disabled = {activeTab === "Publicados" ? true : false}
+        onClick={() => handleTab()}
       >
         Publicados
       </button>
@@ -73,7 +81,8 @@ export function MyProperties() {
               ? "color_que_deseas_para_borradores"
               : "",
         }}
-        onClick={() => setActiveTab("Borradores")}
+        disabled = {activeTab === "Borradores" ? true : false}
+        onClick={() => handleTab()}
       >
         Borradores
       </button>
