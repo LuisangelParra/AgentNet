@@ -50,7 +50,14 @@ export function SingUpForm() {
         // Otros campos del formulario
       });
       console.log(response.data);
-      // Manejar el token y redirigir o realizar otras acciones necesarias
+      // Redirigir al usuario a la página de dashboard solo si el registro fue exitoso
+
+      // Guardar el token en el local storage
+      localStorage.setItem("token", response.data.token);
+
+      // Redirigir al usuario a la página de dashboard
+      window.location.href = "/dashboard";
+
     } catch (error) {
       console.error("Error de signup:", error.response.data);
     

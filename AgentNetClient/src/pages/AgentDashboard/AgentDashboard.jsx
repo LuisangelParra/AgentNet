@@ -13,7 +13,7 @@ import { PropertyMenu } from "../../components/property-menu/property-menu";
 import { SearchProperty } from "../../components/search-property/search-property";
 import { MyProperties } from "../../components/my-properties/my-properties";
 import { Post } from "../../components/post/post";
-
+import { Configuration } from "../../components/configuration/configuration";
 export function AgentDashboard() {
   const [userProfile, setUserProfile] = useState(null);
 
@@ -55,7 +55,7 @@ export function AgentDashboard() {
             <Route path="/red" element={<h1>Red</h1>} />
             <Route path="/reseñas" element={<h1>Reseñas</h1>} />
             <Route path="/herramientas" element={<h1>Herramientas</h1>} />
-            <Route path="/configuración" element={<h1>Configuración</h1>} />
+            <Route path="/configuración" element={<Configuration />} />
           </Routes>
         </div>
       </div>

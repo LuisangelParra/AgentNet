@@ -9,9 +9,9 @@ export function PropertyMenu() {
         <h1>Inmuebles</h1>
       </div>
       <div className="bottons-container">
-        <Link to={"/dashboard/inmuebles/busqueda"} className="first_button">
+        <Link to={"/dashboard/inmuebles/busqueda"} className="second_button">
           <i className="fi-rr-search search_icon"></i>
-          <div className="title_botton">Buscar Inmuebles</div>
+          <div className="second_title_botton">Buscar Inmuebles</div>
         </Link>
 
         <Link to={"/dashboard/inmuebles/misinmuebles"} className="second_button">

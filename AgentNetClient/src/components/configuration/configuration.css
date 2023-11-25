@@ -1,0 +1,72 @@
+.title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.configuration {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: var(--buttons-color);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  color: #ecf0f1;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.configuration h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.configuration form {
+  display: grid;
+  gap: 15px;
+}
+
+.configuration label {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.configuration input {
+  padding: 12px;
+  box-sizing: border-box;
+  border: none;
+  font-size: 15px;
+  border-radius: 6px;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.configuration input:focus {
+  background-color: #bdc3c7;
+  color: #34495e;
+  font-size: 18px;
+}
+
+.configuration button {
+  background-color: #27ae60;
+  color: white;
+  font-size: 1em; 
+  padding: 15px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.configuration button:hover {
+  background-color: #219653;
+}
+
+.configuration input[type="checkbox"] {
+  transform: scale(2.5);
+  margin-right: 620px;
+  padding-bottom: 30px;
+  display: flex;
+}
