@@ -31,4 +31,4 @@ class Profile(models.Model):
     Premium = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'{self.user.FirstName} {self.user.LastName}'
+        return f'{self.FirstName} {self.LastName}'

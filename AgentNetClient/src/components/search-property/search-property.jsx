@@ -24,30 +24,6 @@ export function SearchProperty() {
         <li className="card">
           <PropertCard />
         </li>
-        <li className="card">
-          <PropertCard />
-        </li>
-        <li className="card">
-          <PropertCard />
-        </li>
-        <li className="card">
-          <PropertCard />
-        </li>
-        <li className="card">
-          <PropertCard />
-        </li>
-        <li className="card">
-          <PropertCard />
-        </li>
-        <li className="card">
-          <PropertCard />
-        </li>
-        <li className="card">
-          <PropertCard />
-        </li>
-        <li className="card">
-          <PropertCard />
-        </li>
       </ul>
     </div>
   );
