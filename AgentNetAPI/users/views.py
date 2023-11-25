@@ -1,5 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework import viewsets
 
 from .serializers import UserSerializer, ProfileSerializer
 from rest_framework import status
@@ -7,6 +8,9 @@ from rest_framework.authtoken.models import Token
 from .models import CustomUser, Profile
 
 from django.shortcuts import get_object_or_404
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
 
 @api_view(['POST'])
 def login(request):
