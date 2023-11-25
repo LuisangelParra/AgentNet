@@ -16,7 +16,7 @@ export function PropertyMenu() {
 
         <Link to={"/dashboard/inmuebles/misinmuebles"} className="second_button">
           <i className="fi-rr-home second_home_icon"></i>
-          <div className="second_title_botton">Publicar un Inmueble</div>
+          <div className="second_title_botton">Mis inmuebles</div>
         </Link>
       </div>
     </div>

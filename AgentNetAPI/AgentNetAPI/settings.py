@@ -44,7 +44,12 @@ INSTALLED_APPS = [
     'users',
     'houses',
     'drf_yasg',
+    'django_filters',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,8 +90,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'AgentNetDB',
-        "USER": "lofo",
-        "PASSWORD": "lofo",
+        "USER": "luis",
+        "PASSWORD": "1409luis",
         "HOST": "localhost",
         "PORT": "1433",
         "OPTIONS": {"driver": "ODBC Driver 17 for SQL Server", },
@@ -143,3 +148,4 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+

@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .serializers import HouseSerializer
 from rest_framework.decorators import action, permission_classes
 from rest_framework.response import Response
-from rest_framework import filters
+from django_filters import rest_framework as filters
 from .models import House
 
 class HouseViewSet(viewsets.ModelViewSet):
@@ -13,9 +13,8 @@ class HouseViewSet(viewsets.ModelViewSet):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly]  # o IsAuthenticated para permitir solo a usuarios autenticados
 
-    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
-    search_fields = ['id','profile','name', 'city', 'state', 'price', 'beds', 'baths', 'property_type', 'sale_type', 'is_published']
-    ordering_fields = ['price', 'list_date']
+    filter_backends = [filters.DjangoFilterBackend]
+    filterset_fields = ['profile', 'is_published', 'city', 'state', 'zip_code', 'price', 'beds', 'baths', 'sqft', 'lot_size', 'year_built', 'property_type', 'sale_type']
     
     def perform_create(self, serializer):
         # Guardar la casa sin los campos opcionales
