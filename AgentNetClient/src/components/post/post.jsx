@@ -413,9 +413,6 @@ export function Post() {
           <button type="submit" className="submit-button">
             Publicar
           </button>
-          <button type="submit" className="delete-button">
-            Eliminar
-          </button>
         </div>
       </form>
     </div>
