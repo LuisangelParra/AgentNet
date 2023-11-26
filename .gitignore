@@ -1,7 +1,7 @@
 # .gitignore
 .env
 venv
-./AgentNetAPI/settings.py
 .vscode/settings.json
-./AgentNetAPI/__pycache__
-./AgentNetAPI/media/houses/*
+/AgentNetAPI/AgentNetAPI/settings.py
+/AgentNetAPI/AgentNetAPI/__pycache__/
+/AgentNetAPI/AgentNetAPI/media/houses/
