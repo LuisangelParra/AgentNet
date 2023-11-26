@@ -27,6 +27,7 @@ export function AgentDashboard() {
         });
         setUserProfile(response.data.profile);
         localStorage.setItem("profileID", response.data.profile.id);
+        console.log(localStorage.getItem('token'));
       } catch (error) {
         console.error('Error fetching user data:', error);
         // Manejar errores, como token expirado, etc.
