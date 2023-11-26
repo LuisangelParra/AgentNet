@@ -3,7 +3,6 @@ import "./my-properties.css";
 import { Link } from "react-router-dom";
 
 export function MyProperties() {
-  // Estado para almacenar la pestaña activa
   const profileId = localStorage.getItem("profileID")
   const [activeTab, setActiveTab] = useState("Publicados");
   const [properties, setProperties] = useState([]);
@@ -26,7 +25,6 @@ export function MyProperties() {
   useEffect(() => {
     // Función para obtener las propiedades de la API
     const fetchProperties = async () => {
-      console.log(`http://localhost:8000/api/houses?profile=${profileId}&is_published=${isPublished}&page=${pagination}`)
       try {
         const response = await fetch(
           `http://localhost:8000/api/houses?profile=${profileId}&is_published=${isPublished}&page=${pagination}`
@@ -35,7 +33,7 @@ export function MyProperties() {
         if (response.ok) {
           const data = await response.json();
           console.log(data)
-          setMaxPagination(Math.ceil((data.count/10)));
+          setMaxPagination(Math.ceil((data.count/9)));
           console.log(maxPagination)
           setProperties(data.results);
         } else {
