@@ -6,6 +6,7 @@ from rest_framework.decorators import action, permission_classes
 from rest_framework.response import Response
 from django_filters import rest_framework as filters
 from rest_framework import filters as rest_filters
+from rest_framework.pagination import PageNumberPagination
 from .models import House
 
 class HouseViewSet(viewsets.ModelViewSet):
@@ -13,6 +14,7 @@ class HouseViewSet(viewsets.ModelViewSet):
     serializer_class = HouseSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly]  # o IsAuthenticated para permitir solo a usuarios autenticados
+    pagination_class = PageNumberPagination
 
     filter_backends = [filters.DjangoFilterBackend, rest_filters.SearchFilter, rest_filters.OrderingFilter]
     filterset_fields = ['profile', 'is_published', 'city', 'state', 'zip_code', 'price', 'beds', 'baths', 'sqft', 'lot_size', 'year_built', 'property_type', 'sale_type']

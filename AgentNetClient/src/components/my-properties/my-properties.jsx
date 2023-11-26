@@ -8,13 +8,16 @@ export function MyProperties() {
   const [activeTab, setActiveTab] = useState("Publicados");
   const [properties, setProperties] = useState([]);
   const [isPublished, setIsPublished] = useState(true);
+  const [pagination, setPagination] = useState(1);
+  const [maxPagination, setMaxPagination] = useState(1);
 
   function handleTab() {
     if (activeTab === "Publicados") {
       setIsPublished(false);
+      setPagination(1);
       setActiveTab("Borradores");
     } else {
-      
+      setPagination(1);
       setIsPublished(true);
       setActiveTab("Publicados");
     }
@@ -23,14 +26,18 @@ export function MyProperties() {
   useEffect(() => {
     // Función para obtener las propiedades de la API
     const fetchProperties = async () => {
+      console.log(`http://localhost:8000/api/houses?profile=${profileId}&is_published=${isPublished}&page=${pagination}`)
       try {
         const response = await fetch(
-          `http://localhost:8000/api/houses?profile=${profileId}&is_published=${isPublished}`
+          `http://localhost:8000/api/houses?profile=${profileId}&is_published=${isPublished}&page=${pagination}`
         );
 
         if (response.ok) {
           const data = await response.json();
-          setProperties(data);
+          console.log(data)
+          setMaxPagination(Math.ceil((data.count/10)));
+          console.log(maxPagination)
+          setProperties(data.results);
         } else {
           console.error("Error al obtener propiedades");
         }
@@ -41,7 +48,7 @@ export function MyProperties() {
 
     // Llamar a la función para obtener propiedades al cambiar la pestaña activa
     fetchProperties();
-  }, [activeTab]);
+  }, [activeTab, pagination]);
 
   return (
     <div className="my_property_container">
@@ -90,18 +97,6 @@ export function MyProperties() {
         {/* Contenido de la pestaña "Publicados" */}
         {activeTab === "Publicados" && (
           <div id="Publicados" className="tabcontent">
-            <div className="search_box">
-              <div className="search_bar">
-                <input
-                  type="text"
-                  name="search_bar"
-                  id="search_bar"
-                  placeholder="Escribe una palabra clave"
-                />
-                <i className="fi-rr-search"></i>
-              </div>
-            </div>
-
             <div className="table">
               <table>
                 <thead>
@@ -114,6 +109,7 @@ export function MyProperties() {
                         className="check_button"
                       />
                     </th>
+                    <th>Nombre</th>
                     <th>Ubicación</th>
                     <th>Operación</th>
                     <th>Tipo</th>
@@ -134,6 +130,7 @@ export function MyProperties() {
                           className="check_button"
                         />
                       </td>
+                      <td>{property.name}</td>
                       <td>{property.city}</td>
                       <td>{property.sale_type}</td>
                       <td>{property.property_type}</td>
@@ -141,28 +138,30 @@ export function MyProperties() {
                       <td>
                         <div className="details_button">DETALLES</div>
                       </td>
+                      <td>
+                        <div className="details_button_green">OCULTAR</div>
+                      </td>
+                      <td>
+                        <div className="details_button_red">BORRAR</div>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+              {/* Paginación */}
+              <div className="pagination">
+                <button className="pagination_button" disabled={pagination === 1 ? true:false} onClick={() => setPagination(pagination-1) }>Anterior</button>
+                <div className="pagination">{pagination}</div>
+                <button className="pagination_button" disabled={pagination === maxPagination ? true:false} onClick={() => setPagination(pagination+1)} >Siguiente</button>
+              </div>
             </div>
+            
           </div>
         )}
 
         {/* Contenido de la pestaña "Borradores" */}
         {activeTab === "Borradores" && (
           <div id="Borradores" className="tabcontent">
-            <div className="search_box">
-              <div className="search_bar">
-                <input
-                  type="text"
-                  name="search_bar"
-                  id="search_bar"
-                  placeholder="Escribe una palabra clave"
-                />
-                <i className="fi-rr-search"></i>
-              </div>
-            </div>
 
             <div className="table">
               <table>
@@ -176,6 +175,7 @@ export function MyProperties() {
                         className="check_button"
                       />
                     </th>
+                    <th>Nombre</th>
                     <th>Ubicación</th>
                     <th>Operación</th>
                     <th>Tipo</th>
@@ -196,6 +196,7 @@ export function MyProperties() {
                           className="check_button"
                         />
                       </td>
+                      <td>{property.name}</td>
                       <td>{property.city}</td>
                       <td>{property.sale_type}</td>
                       <td>{property.property_type}</td>
@@ -207,12 +208,18 @@ export function MyProperties() {
                         <div className="details_button_green">PUBLICAR</div>
                       </td>
                       <td>
-                        <div className="details_button_red">PUBLICAR</div>
+                        <div className="details_button_red">BORRAR</div>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+              {/* Paginación */}
+              <div className="pagination">
+                <button className="pagination_button" disabled={pagination === 1 ? true:false} onClick={() => setPagination(pagination-1) }>Anterior</button>
+                <div className="pagination">{pagination}</div>
+                <button className="pagination_button" disabled={pagination === maxPagination ? true:false} onClick={() => setPagination(pagination+1)} >Siguiente</button>
+              </div>
             </div>
           </div>
         )}

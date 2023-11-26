@@ -104,12 +104,12 @@
     background-color: transparent;
     transform-origin: bottom right;
     transform: scaleX(0);
-    transition: transform 1s ease-in-out, background-color 0.3s;
+    transition: transform 0.2s ease-in-out, background-color 0.3s;
     border-radius: 2px;
 }
 
 .my_property_container .tablink:hover {
-    transition: 1s ease;
+    transition: 0.2s ease;
     background: transparent;
     color: var(--text-color);
 }
@@ -130,68 +130,8 @@
 }
 
 .my_property_container .tabcontent {
-    margin-top: 20px;
     border-radius: 8px;
-}
-
-.my_property_container .tabcontent .search_box {
-    width: 100%;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-}
-
-.my_property_container .tabcontent .search_box .search_bar {
-    width: 60%;
-    position: relative;
-    padding-left: 20px;
-    padding-top: 20px;
-}
-
-.my_property_container .tabcontent .search_box .search_bar input {
-    width: 100%;
-    height: 35px;
-    border-radius: 12px;
-    outline: none;
-    border: solid 2px var(--border-bg);
-    font-family: "Kulim Park", sans-serif;
-    font-size: 16px;
-    padding-left: 15px;
-    color: #8a8a8a;
-    transition: ease 0.3s;
-}
-
-.my_property_container .tabcontent .search_box .search_bar input:focus {
-    border: solid 2px var(--buttons-color);
-}
-
-.my_property_container .tabcontent .search_box .search_bar i {
-    position: absolute;
-    top: 1.5em;
-    right: 10px;
-    color: #8a8a8a;
-    font-size: 1.2em;
-}
-
-.my_property_container .tabcontent .search_box .search_button {
-    width: 20%;
-    height: 35px;
-    border-radius: 12px;
-    border: solid 2px var(--border-bg);
-    font-size: 16px;
-    line-height: 30px;
-    text-align: center;
-    color: var(--text-color);
-    cursor: pointer;
-    background: white;
-    transition: ease 0.3s;
-}
-
-.my_property_container .tabcontent .search_box .search_button:hover {
-    border: solid 2px var(--buttons-color);
-    color: white;
-    background: var(--buttons-color);
+    padding: 2em;
 }
 
 .my_property_container .tabcontent .table {
@@ -285,4 +225,12 @@
 .my_property_container .tabcontent .table table tr td .details_button_red:hover {
     background: white;
     color: red;
+}
+
+.my_property_container .tabcontent .table .pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
