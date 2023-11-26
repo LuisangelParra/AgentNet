@@ -22,16 +22,7 @@ export function LeftBar() {
         </Link>
       </li>
 
-      <li
-        onClick={(event) => handleItemClick(event, 2)}
-        className={selectedItem === 2 ? "seleccionado" : ""}
-      >
-        <Link to={"/dashboard/solicitudes"}>
-          <i className="fi fi-rr-envelope"></i>
-          <h2 className="option">Solicitudes</h2>
-        </Link>
-      </li>
-
+      
       <li
         onClick={(event) => handleItemClick(event, 3)}
         className={selectedItem === 3 ? "seleccionado" : ""}
@@ -39,6 +30,16 @@ export function LeftBar() {
         <Link to={"/dashboard/inmuebles"}>
           <i className="fi fi-rr-building"></i>
           <h2 className="option">Inmuebles</h2>
+        </Link>
+      </li>
+
+      <li
+        onClick={(event) => handleItemClick(event, 2)}
+        className={selectedItem === 2 ? "seleccionado" : ""}
+      >
+        <Link to={"/dashboard/solicitudes"}>
+          <i className="fi fi-rr-envelope"></i>
+          <h2 className="option">Solicitudes</h2>
         </Link>
       </li>
 

@@ -32,9 +32,7 @@ export function MyProperties() {
 
         if (response.ok) {
           const data = await response.json();
-          console.log(data)
           setMaxPagination(Math.ceil((data.count/8)));
-          console.log(maxPagination)
           setProperties(data.results);
         } else {
           console.error("Error al obtener propiedades");
