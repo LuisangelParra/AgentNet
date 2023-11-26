@@ -444,3 +444,19 @@
 .draft-button {
     background-color: #4caf50; /* Cambiado el color del botón de borrador */
 }
+
+.submit-button2,
+.draft-button {
+    padding: 15px 30px; /* Aumentado el espacio interno */
+    cursor: pointer;
+    font-size: 18px; /* Aumentada la tamaño de la fuente */
+    border: none;
+    border-radius: 10px; /* Aumentado el radio del borde */
+    color: #fff;
+}
+
+.submit-button2 {
+    width: 100%;
+    height: 3.5em; /* Aumentada la altura del botón */
+    background-color: var(--buttons-color);
+}

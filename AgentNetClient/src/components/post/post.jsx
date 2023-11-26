@@ -66,6 +66,35 @@ export function Post() {
     }
   };
 
+  const handleMakePrivate = async (id) => {
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:8000/api/houses/${id}/make_private/`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({
+            is_published: false,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        console.log("Propiedad ocultada");
+        setProperties(properties.filter((property) => property.id !== id));
+        console.log(properties);
+        setPagination(1);
+      } else {
+        console.error("Error al ocultar propiedad");
+      }
+    } catch (error) {
+      console.error("Error en la solicitud:", error);
+    }
+  };
+
   const autoCompleteRef = useRef();
   const inputRef = useRef();
   const options = {
@@ -110,10 +139,33 @@ export function Post() {
     });
   };
 
-  //
-
   const handlePost = async (e) => {
     e.preventDefault();
+  
+    // Verifica que todos los campos estén llenos
+    if (
+      !title ||
+      !selectedAddress ||
+      !position.lat ||
+      !position.lng ||
+      !city ||
+      !state ||
+      !zip_code ||
+      !price ||
+      !rooms ||
+      !bathrooms ||
+      !sqft ||
+      !year_built ||
+      !propertyType ||
+      !saleType ||
+      !totalArea ||
+      !description ||
+      images.length !== 5
+    ) {
+      console.error("Por favor, completa todos los campos antes de publicar.");
+      window.alert("Por favor, completa todos los campos antes de publicar.");
+      return;
+    }
     try {
       const response = await axios.post(
         "http://localhost:8000/api/houses/",
@@ -412,6 +464,13 @@ export function Post() {
         <div className="form-buttons">
           <button type="submit" className="submit-button">
             Publicar
+          </button>
+          <button
+            type="submit2"
+            className="submit-button2"
+            onClick={() => handleMakePrivate()}
+          >
+            Guardar Borrador
           </button>
         </div>
       </form>

@@ -42,7 +42,7 @@ class HouseViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(house, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         # Verificar si la casa cumple con las condiciones para estar en estado público
-        if all([getattr(house, field) for field in ['address', 'longitude', 'latitude', 'city', 'state', 'zip_code', 'price', 'beds', 'baths', 'sqft', 'lot_size', 'year_built', 'property_type', 'sale_type']] and any([house.image1, house.image2, house.image3, house.image4, house.image5])):
+        if all([getattr(house, field) for field in ['address', 'longitude', 'latitude', 'city', 'state', 'zip_code', 'price', 'beds', 'baths', 'sqft', 'lot_size', 'year_built', 'property_type', 'sale_type']]):
             serializer.save(is_published=True)
             return Response({'status': 'El estado público de la casa ha sido actualizado.'})
         else:
