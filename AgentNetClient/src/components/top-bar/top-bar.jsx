@@ -13,7 +13,7 @@ export function TopBar(profile) {
   };
 
   return (
-    <div className="nav-bar">
+    <div className="nav-bar2">
       <div className="right-nav-bar">
         <ul>
           <li>

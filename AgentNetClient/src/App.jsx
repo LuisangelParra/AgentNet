@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AgentDashboard } from "./pages/AgentDashboard/AgentDashboard";
 import { Authentication } from "./pages/Authentication/Authentication";
+import {  } from "./pages/LandingPage/LandingPage";
 import React from "react";
 
 // Utilidad para verificar si el usuario está autenticado
